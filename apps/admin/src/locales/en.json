@@ -1,0 +1,630 @@
+{
+  "Index": {
+    "title": "Hello world!",
+    "description": "This is a localization example"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {Russian} en {English} other {Unknown}}"
+  },
+  "Auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Sign in to your account",
+      "email": "Email address",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create your account",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "terms": "I agree to the terms and conditions",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "recovery": {
+      "title": "Password Recovery",
+      "subtitle": "Reset your password",
+      "email": "Email address",
+      "submit": "Send reset link",
+      "backToLogin": "Back to login",
+      "checkEmail": "Check your email",
+      "emailSent": "We have sent a password reset link to your email"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "password": "Password must be at least 8 characters",
+      "passwordMatch": "Passwords do not match",
+      "terms": "You must accept the terms and conditions"
+    }
+  },
+  "Common": {
+    "language": {
+      "en": "English",
+      "ru": "Russian",
+      "select": "Select language"
+    },
+    "navigation": {
+      "home": "Home",
+      "dashboard": "Dashboard",
+      "ecommerce": "Ecommerce",
+      "calendar": "Calendar",
+      "profile": "User Profile",
+      "forms": "Forms",
+      "elements": "Form Elements",
+      "tables": "Tables",
+      "basic": "Basic Tables",
+      "pages": "Pages",
+      "blank": "Blank Page",
+      "error404": "404 Error",
+      "charts": "Charts",
+      "line": "Line Chart",
+      "bar": "Bar Chart",
+      "uiElements": "UI Elements",
+      "alerts": "Alerts",
+      "avatar": "Avatar",
+      "badge": "Badge",
+      "buttons": "Buttons",
+      "images": "Images",
+      "videos": "Videos",
+      "auth": "Authentication",
+      "signIn": "Sign In",
+      "signUp": "Sign Up"
+    },
+    "common": {
+      "menu": "Menu",
+      "others": "Others",
+      "search": "Search",
+      "add": "Add",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "close": "Close",
+      "back": "Back",
+      "next": "Next",
+      "loading": "Loading...",
+      "noData": "No data available",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "viewMore": "View More",
+      "calendarLocale": "en",
+      "breadcrumb": {
+         "home": "Home"
+      }
+    },
+    "sidebar": {
+      "openSidebar": "Open sidebar",
+      "pinSidebar": "Pin sidebar",
+      "unpinSidebar": "Unpin sidebar"
+    },
+    "buttons": {
+      "submit": "Submit",
+      "reset": "Reset",
+      "apply": "Apply",
+      "confirm": "Confirm",
+      "upload": "Upload",
+      "download": "Download",
+      "view": "View",
+      "create": "Create"
+    },
+    "time": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "tomorrow": "Tomorrow",
+      "days": "days",
+      "weeks": "weeks",
+      "months": "months",
+      "years": "years"
+    },
+    "months": {
+       "jan": "Jan",
+       "feb": "Feb",
+       "mar": "Mar",
+       "apr": "Apr",
+       "may": "May",
+       "jun": "Jun",
+       "jul": "Jul",
+       "aug": "Aug",
+       "sep": "Sep",
+       "oct": "Oct",
+       "nov": "Nov",
+       "dec": "Dec"
+    },
+    "timeframes": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annually": "Annually"
+    },
+    "countries": {
+      "us": "United States",
+      "in": "India",
+      "uk": "United Kingdom",
+      "se": "Sweden",
+      "cn": "China",
+      "de": "Germany",
+      "gb": "United Kingdom",
+      "br": "Brazil",
+      "jp": "Japan"
+    }
+  },
+  "Dashboard": {
+    "metrics": {
+      "totalRevenue": "Total Revenue",
+      "totalOrders": "Total Orders",
+      "totalCustomers": "Total Customers",
+      "averageOrder": "Average Order Value",
+      "conversionRate": "Conversion Rate",
+      "dailyVisitors": "Daily Visitors"
+    },
+    "charts": {
+      "monthlySales": {
+        "title": "Monthly Sales",
+        "subtitle": "Sales performance overview",
+        "revenue": "Revenue",
+        "orders": "Orders",
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month"
+      },
+      "monthlyTarget": {
+        "title": "Monthly Target",
+        "subtitle": "Sales target progress",
+        "target": "Target",
+        "achieved": "Achieved",
+        "remaining": "Remaining",
+        "revenue": "Revenue",
+        "earningMessage": "You earn {amount} today, it's higher than last month.",
+        "encouragementMessage": "Keep up your good work!"
+      },
+      "statistics": {
+        "title": "Statistics",
+        "subtitle": "Performance metrics",
+        "visitors": "Visitors",
+        "sales": "Sales",
+        "earnings": "Earnings"
+      },
+      "demographics": {
+        "title": "Demographics",
+        "subtitle": "Customer distribution",
+        "age": "Age",
+        "gender": "Gender",
+        "location": "Location"
+      }
+    },
+    "orders": {
+      "recent": {
+        "title": "Recent Orders",
+        "orderID": "Order ID",
+        "customer": "Customer",
+        "product": "Product",
+        "category": "Category",
+        "price": "Price",
+        "date": "Date",
+        "status": "Status",
+        "amount": "Amount",
+        "filter": "Filter",
+        "seeAll": "See all"
+      },
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "metadata": {
+      "title": "E-commerce Dashboard",
+      "description": "E-commerce performance overview"
+    }
+  },
+  "Forms": {
+    "pageTitle": "Form Elements",
+    "defaultInputs": {
+       "title": "Default Inputs",
+       "labelInput": "Input",
+       "labelInputWithPlaceholder": "Input with Placeholder",
+       "placeholderEmail": "info@gmail.com",
+       "labelPassword": "Password Input",
+       "placeholderPassword": "Enter password (Latin letters)",
+       "labelDatePicker": "Date Picker",
+       "placeholderDatePicker": "Select date",
+       "labelTimePicker": "Time Picker",
+       "labelInputWithPayment": "Input with Payment",
+       "placeholderCardNumber": "Card number"
+    },
+    "passwordHints": {
+      "minLength": "Minimum 8 Latin characters",
+      "lowercase": "Lowercase Latin letters (a-z)",
+      "uppercase": "Uppercase Latin letters (A-Z)",
+      "numbers": "Numbers (0-9)",
+      "special": "Special characters (!@#$%^&*)"
+    },
+    "inputs": {
+      "text": {
+        "placeholder": "Enter text",
+        "label": "Text input"
+      },
+      "email": {
+        "placeholder": "Enter email",
+        "label": "Email input"
+      },
+      "password": {
+        "placeholder": "Enter password",
+        "label": "Password input",
+        "show": "Show password",
+        "hide": "Hide password"
+      },
+      "search": {
+        "placeholder": "Search...",
+        "label": "Search input"
+      },
+      "number": {
+        "placeholder": "Enter number",
+        "label": "Number input"
+      },
+      "tel": {
+        "placeholder": "Enter phone number",
+        "label": "Phone input"
+      }
+    },
+    "select": {
+      "placeholder": "Select option",
+      "noOptions": "No options available",
+      "loading": "Loading options...",
+      "multiSelect": {
+        "placeholder": "Select multiple options",
+        "selected": "selected",
+        "all": "All",
+        "clear": "Clear"
+      }
+    },
+    "datePicker": {
+      "placeholder": "Select date",
+      "format": "MM/DD/YYYY",
+      "today": "Today",
+      "clear": "Clear"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "minLength": "Must be at least {0} characters",
+      "maxLength": "Must be no more than {0} characters",
+      "pattern": "Invalid format",
+      "number": "Please enter a valid number",
+      "tel": "Please enter a valid phone number",
+      "match": "Fields do not match",
+      "min": "Must be at least {0}",
+      "max": "Must be no more than {0}"
+    },
+    "buttons": {
+      "submit": "Submit",
+      "reset": "Reset",
+      "cancel": "Cancel",
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "upload": "Upload",
+      "download": "Download"
+    },
+    "labels": {
+      "optional": "Optional",
+      "required": "Required",
+      "error": "Error",
+      "success": "Success",
+      "info": "Information"
+    },
+    "groups": {
+      "personalInfo": "Personal Information",
+      "contactInfo": "Contact Information",
+      "accountInfo": "Account Information",
+      "preferences": "Preferences",
+      "address": "Address"
+    },
+    "placeholderSelectOption": "Select Option",
+    "selectInputs": {
+      "title": "Select Inputs",
+      "labelSelectInput": "Select Input",
+      "placeholderSelectOption": "Select an option",
+      "labelMultiSelect": "Multi Select",
+      "options": {
+        "option1": "Option 1",
+        "option2": "Option 2",
+        "option3": "Option 3",
+        "option4": "Option 4",
+        "option5": "Option 5"
+      }
+    }
+  },
+  "Notifications": {
+    "system": {
+      "title": "System Notifications",
+      "maintenance": {
+        "title": "System Maintenance",
+        "scheduled": "Scheduled maintenance on {date}",
+        "inProgress": "System maintenance in progress",
+        "completed": "System maintenance completed"
+      },
+      "update": {
+        "title": "System Update",
+        "available": "New update available",
+        "required": "Required system update",
+        "completed": "System successfully updated"
+      },
+      "security": {
+        "title": "Security Alert",
+        "newLogin": "New login from {device}",
+        "passwordChanged": "Your password has been changed",
+        "twoFactorEnabled": "Two-factor authentication enabled",
+        "twoFactorDisabled": "Two-factor authentication disabled"
+      }
+    },
+    "errors": {
+      "title": "Error Messages",
+      "general": "An error occurred",
+      "network": {
+        "title": "Network Error",
+        "connection": "Connection lost",
+        "timeout": "Request timeout",
+        "offline": "You are offline"
+      },
+      "auth": {
+        "title": "Authentication Error",
+        "invalid": "Invalid credentials",
+        "expired": "Session expired",
+        "required": "Authentication required"
+      },
+      "data": {
+        "title": "Data Error",
+        "notFound": "Data not found",
+        "invalid": "Invalid data",
+        "saving": "Error saving data"
+      }
+    },
+    "success": {
+      "title": "Success Messages",
+      "saved": "Successfully saved",
+      "updated": "Successfully updated",
+      "deleted": "Successfully deleted",
+      "created": "Successfully created",
+      "uploaded": "Successfully uploaded",
+      "sent": "Successfully sent",
+      "completed": "Operation completed"
+    },
+    "actions": {
+      "dismiss": "Dismiss",
+      "retry": "Retry",
+      "view": "View details",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "status": {
+      "info": "Information",
+      "warning": "Warning",
+      "error": "Error",
+      "success": "Success",
+      "pending": "Pending",
+      "processing": "Processing"
+    }
+  },
+  "Tables": {
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of",
+      "showing": "Showing",
+      "to": "to",
+      "entries": "entries",
+      "show": "Show",
+      "perPage": "per page"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "view": "View",
+      "export": "Export",
+      "print": "Print",
+      "filter": "Filter",
+      "sort": "Sort",
+      "search": "Search in table..."
+    },
+    "filters": {
+      "title": "Filter",
+      "apply": "Apply",
+      "clear": "Clear",
+      "clearAll": "Clear all",
+      "column": "Column",
+      "value": "Value",
+      "condition": "Condition",
+      "equals": "Equals",
+      "contains": "Contains",
+      "startsWith": "Starts with",
+      "endsWith": "Ends with",
+      "greaterThan": "Greater than",
+      "lessThan": "Less than"
+    },
+    "sort": {
+      "ascending": "Sort Ascending",
+      "descending": "Sort Descending",
+      "none": "No Sort",
+      "sortBy": "Sort by"
+    },
+    "empty": {
+      "noData": "No data available",
+      "noResults": "No matching records found",
+      "noFilterResults": "No data matching the filter"
+    },
+    "selection": {
+      "all": "Select all",
+      "none": "Select none",
+      "selected": "selected"
+    },
+    "columns": {
+      "hide": "Hide column",
+      "show": "Show column",
+      "manage": "Manage columns"
+    },
+    "export": {
+      "all": "Export all",
+      "selected": "Export selected",
+      "formats": {
+        "csv": "CSV",
+        "excel": "Excel",
+        "pdf": "PDF"
+      }
+    },
+    "loading": {
+      "text": "Loading data...",
+      "error": "Error loading data",
+      "retry": "Retry"
+    },
+    "BasicTable": {
+      "pageTitle": "Basic Table",
+      "cardTitle": "Basic Table 1",
+      "user": "User",
+      "projectName": "Project Name",
+      "team": "Team",
+      "status": "Status",
+      "budget": "Budget",
+      "statuses": {
+        "Active": "Active",
+        "Pending": "Pending",
+        "Cancel": "Cancel"
+      },
+      "roles": {
+        "WebDesigner": "Web Designer",
+        "ProjectManager": "Project Manager",
+        "ContentWriting": "Content Writing",
+        "DigitalMarketer": "Digital Marketer",
+        "FrontEndDeveloper": "Front-end Developer"
+      },
+      "projects": {
+        "AgencyWebsite": "Agency Website",
+        "Technology": "Technology",
+        "BlogWriting": "Blog Writing",
+        "SocialMedia": "Social Media",
+        "Website": "Website"
+      }
+    }
+  },
+  "Calendar": {
+    "addEventButton": "Add Event +",
+    "modal": {
+      "titleAdd": "Add Event",
+      "titleEdit": "Edit Event",
+      "subtitle": "Plan your next big moment: schedule or edit an event to stay on track",
+      "eventTitleLabel": "Event Title",
+      "eventColorLabel": "Event Color",
+      "startDateLabel": "Enter Start Date",
+      "endDateLabel": "Enter End Date",
+      "closeButton": "Close",
+      "addButton": "Add Event",
+      "updateButton": "Update Changes"
+    },
+    "colors": {
+      "Danger": "Danger",
+      "Success": "Success",
+      "Primary": "Primary",
+      "Warning": "Warning"
+    }
+  },
+  "Profile": {
+    "title": "Profile",
+    "meta": {
+      "role": "Team Manager",
+      "location": "Arizona, United States",
+      "editButton": "Edit"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone",
+      "bioLabel": "Bio",
+      "editButton": "Edit"
+    },
+    "address": {
+      "title": "Address",
+      "countryLabel": "Country",
+      "cityStateLabel": "City/State",
+      "postalCodeLabel": "Postal Code",
+      "taxIdLabel": "TAX ID",
+      "editButton": "Edit"
+    },
+    "modalEditPersonalInfo": {
+       "title": "Edit Personal Information",
+       "subtitle": "Update your details to keep your profile up-to-date.",
+       "socialLinksTitle": "Social Links",
+       "facebookLabel": "Facebook",
+       "xcomLabel": "X.com",
+       "linkedinLabel": "Linkedin",
+       "instagramLabel": "Instagram",
+       "personalInfoTitle": "Personal Information",
+       "firstNameLabel": "First Name",
+       "lastNameLabel": "Last Name",
+       "emailLabel": "Email Address",
+       "phoneLabel": "Phone",
+       "bioLabel": "Bio",
+       "closeButton": "Close",
+       "saveButton": "Save Changes"
+    },
+    "modalEditAddress": {
+       "title": "Edit Address",
+       "subtitle": "Update your address.",
+       "countryLabel": "Country",
+       "cityStateLabel": "City/State",
+       "postalCodeLabel": "Postal Code",
+       "taxIdLabel": "TAX ID",
+       "closeButton": "Close",
+       "saveButton": "Save Changes"
+    }
+  },
+  "textareaInput": {
+    "title": "Textarea Input",
+    "labelDefault": "Default Textarea",
+    "placeholderDefault": "Default textarea",
+    "labelActive": "Active Textarea",
+    "placeholderActive": "Active textarea",
+    "labelError": "Error Textarea",
+    "hint": "Please enter a valid message."
+  },
+  "inputStates": {
+    "title": "Input States",
+    "subtitle": "Validation styles for error, success and disabled states on form controls.",
+    "labelEmail": "Email",
+    "placeholderEmail": "Enter your email",
+    "hintSuccess": "Valid email!",
+    "hintDisabled": "This field is disabled."
+  },
+  "inputGroup": {
+    "title": "Input Group",
+    "labelEmail": "Email",
+    "labelPhone": "Phone",
+    "placeholderPhone": "Enter phone number"
+  },
+  "BlankPage": {
+    "pageTitle": "Blank Page",
+    "cardTitle": "Card Title Here",
+    "description": "Start putting content on grids or panels, you can also use different combinations of grids. Please check out the dashboard and other pages."
+  },
+  "Error404": {
+    "error": "ERROR",
+    "notFound": "We can't seem to find the page you are looking for!",
+    "backToHome": "Back to Home Page"
+  }
+} 
