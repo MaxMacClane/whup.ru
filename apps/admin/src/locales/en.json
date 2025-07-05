@@ -626,5 +626,11 @@
     "error": "ERROR",
     "notFound": "We can't seem to find the page you are looking for!",
     "backToHome": "Back to Home Page"
+  },
+  "ui": {
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "user": "User",
+    "profile": "Profile"
   }
 } 

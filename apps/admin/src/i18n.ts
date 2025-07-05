@@ -6,10 +6,16 @@ export const locales = ['ru', 'en'] as const;
 export type Locale = (typeof locales)[number];
 
 export default getRequestConfig(async ({locale}) => {
+  // Защита от undefined locale - берем 'ru' по умолчанию
+  const safeLocale = locale || 'ru';
+  
   // Проверяем, что переданный язык поддерживается
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(safeLocale as any)) {
+    notFound();
+  }
 
   return {
-    messages: (await import(`./locales/${locale}.json`)).default
+    locale: safeLocale,
+    messages: (await import(`./locales/${safeLocale}.json`)).default
   };
 }); 
