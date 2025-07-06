@@ -5,7 +5,7 @@ import React from "react";
 import { ApexOptions } from "apexcharts";
 import ChartTab from "../common/ChartTab";
 import dynamic from "next/dynamic";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 // Dynamically import the ReactApexChart component
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -13,7 +13,8 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 });
 
 export default function StatisticsChart() {
-  const { t } = useLanguage();
+  const t = useTranslations('Dashboard');
+  const tCommon = useTranslations('Common');
   
   const options: ApexOptions = {
     legend: {
@@ -74,18 +75,18 @@ export default function StatisticsChart() {
     xaxis: {
       type: "category", // Category-based x-axis
       categories: [
-        t('Common.months.jan'),
-        t('Common.months.feb'),
-        t('Common.months.mar'),
-        t('Common.months.apr'),
-        t('Common.months.may'),
-        t('Common.months.jun'),
-        t('Common.months.jul'),
-        t('Common.months.aug'),
-        t('Common.months.sep'),
-        t('Common.months.oct'),
-        t('Common.months.nov'),
-        t('Common.months.dec'),
+        tCommon('months.jan'),
+        tCommon('months.feb'),
+        tCommon('months.mar'),
+        tCommon('months.apr'),
+        tCommon('months.may'),
+        tCommon('months.jun'),
+        tCommon('months.jul'),
+        tCommon('months.aug'),
+        tCommon('months.sep'),
+        tCommon('months.oct'),
+        tCommon('months.nov'),
+        tCommon('months.dec'),
       ],
       axisBorder: {
         show: false, // Hide x-axis border
@@ -115,11 +116,11 @@ export default function StatisticsChart() {
 
   const series = [
     {
-      name: t('Dashboard.charts.statistics.sales'),
+      name: t('charts.statistics.sales'),
       data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
     },
     {
-      name: t('Dashboard.charts.statistics.revenue'),
+      name: t('charts.statistics.revenue'),
       data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
     },
   ];
@@ -128,10 +129,10 @@ export default function StatisticsChart() {
       <div className="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
         <div className="w-full">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            {t('Dashboard.charts.statistics.title')}
+            {t('charts.statistics.title')}
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            {t('Dashboard.charts.statistics.subtitle')}
+            {t('charts.statistics.subtitle')}
           </p>
         </div>
         <div className="flex items-start w-full gap-3 sm:justify-end">

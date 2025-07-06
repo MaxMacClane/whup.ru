@@ -6,10 +6,10 @@ import Label from "../Label";
 import Select from "../Select";
 import MultiSelect from "../MultiSelect";
 import { ChevronDownIcon } from "@/icons";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 export default function SelectInputs() {
-  const { t } = useLanguage();
+  const t = useTranslations('Forms');
 
   const options = [
     { value: "marketing", label: "Marketing" },
@@ -24,21 +24,21 @@ export default function SelectInputs() {
   };
 
   const multiOptions = [
-    { value: "1", text: t('Forms.selectInputs.options.option1'), selected: false },
-    { value: "2", text: t('Forms.selectInputs.options.option2'), selected: false },
-    { value: "3", text: t('Forms.selectInputs.options.option3'), selected: false },
-    { value: "4", text: t('Forms.selectInputs.options.option4'), selected: false },
-    { value: "5", text: t('Forms.selectInputs.options.option5'), selected: false },
+    { value: "1", text: t('selectInputs.options.option1'), selected: false },
+    { value: "2", text: t('selectInputs.options.option2'), selected: false },
+    { value: "3", text: t('selectInputs.options.option3'), selected: false },
+    { value: "4", text: t('selectInputs.options.option4'), selected: false },
+    { value: "5", text: t('selectInputs.options.option5'), selected: false },
   ];
 
   return (
-    <ComponentCard title={t('Forms.selectInputs.title')}>
+    <ComponentCard title={t('selectInputs.title')}>
       <div className="space-y-6">
         <div>
-          <Label htmlFor="select1">{t('Forms.selectInputs.labelSelectInput')}</Label>
+          <Label htmlFor="select1">{t('selectInputs.labelSelectInput')}</Label>
           <div className="relative">
             <Select
-              placeholder={t('Forms.selectInputs.placeholderSelectOption')}
+              placeholder={t('selectInputs.placeholderSelectOption')}
               options={options}
               onChange={handleSelectChange}
               className="dark:bg-dark-900"
@@ -50,7 +50,7 @@ export default function SelectInputs() {
         </div>
         <div className="relative">
           <MultiSelect
-            label={t('Forms.selectInputs.labelMultiSelect')}
+            label={t('selectInputs.labelMultiSelect')}
             options={multiOptions}
             defaultSelected={["1", "3"]}
             onChange={(values) => setSelectedValues(values)}

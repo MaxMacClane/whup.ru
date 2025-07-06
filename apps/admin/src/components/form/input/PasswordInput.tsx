@@ -5,7 +5,7 @@ import React, { useState, useRef } from "react";
 import Input from "./InputField";
 import { EyeIcon, EyeCloseIcon } from "../../../icons";
 import { usePasswordValidation } from "../validation/PasswordValidation";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 interface PasswordInputProps {
   onChange?: (value: string, isValid: boolean) => void;
@@ -22,7 +22,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   className = "",
   showHints = false,
 }) => {
-  const { t } = useLanguage();
+  const t = useTranslations('Forms');
   const [showPassword, setShowPassword] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { validationState, validationRules, validate } = usePasswordValidation();
@@ -91,23 +91,23 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         <div className="space-y-1 text-sm">
           <div className={`flex items-center gap-2 ${validationRules.minLength ? 'text-success-500' : 'text-gray-500'}`}>
             <span className="w-2 h-2 rounded-full bg-current" />
-            <span>{t('Forms.passwordHints.minLength')}</span>
+            <span>{t('passwordHints.minLength')}</span>
           </div>
           <div className={`flex items-center gap-2 ${validationRules.hasLowerCase ? 'text-success-500' : 'text-gray-500'}`}>
             <span className="w-2 h-2 rounded-full bg-current" />
-            <span>{t('Forms.passwordHints.lowercase')}</span>
+            <span>{t('passwordHints.lowercase')}</span>
           </div>
           <div className={`flex items-center gap-2 ${validationRules.hasUpperCase ? 'text-success-500' : 'text-gray-500'}`}>
             <span className="w-2 h-2 rounded-full bg-current" />
-            <span>{t('Forms.passwordHints.uppercase')}</span>
+            <span>{t('passwordHints.uppercase')}</span>
           </div>
           <div className={`flex items-center gap-2 ${validationRules.hasNumber ? 'text-success-500' : 'text-gray-500'}`}>
             <span className="w-2 h-2 rounded-full bg-current" />
-            <span>{t('Forms.passwordHints.numbers')}</span>
+            <span>{t('passwordHints.numbers')}</span>
           </div>
           <div className={`flex items-center gap-2 ${validationRules.hasSpecial ? 'text-success-500' : 'text-gray-500'}`}>
             <span className="w-2 h-2 rounded-full bg-current" />
-            <span>{t('Forms.passwordHints.special')}</span>
+            <span>{t('passwordHints.special')}</span>
           </div>
         </div>
       )}

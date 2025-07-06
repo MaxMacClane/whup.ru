@@ -19,7 +19,7 @@ import {
   ArrowRightIcon,
   SidebarLeftIcon,
 } from "../icons/index";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 // Модифицируем NavItem для поддержки ключей перевода
 type NavItem = {
@@ -37,37 +37,37 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    translationKey: "Common.navigation.dashboard",
-    subItems: [{ translationKey: "Common.navigation.ecommerce", path: "/admin", pro: false }],
+    translationKey: "dashboard",
+    subItems: [{ translationKey: "ecommerce", path: "/admin", pro: false }],
   },
   {
     icon: <CalenderIcon />,
-    translationKey: "Common.navigation.calendar",
+    translationKey: "calendar",
     path: "/admin/calendar",
   },
   {
     icon: <UserCircleIcon />,
-    translationKey: "Common.navigation.profile",
+    translationKey: "profile",
     path: "/admin/profile",
   },
 
   {
-    translationKey: "Common.navigation.forms",
+    translationKey: "forms",
     icon: <ListIcon />,
-    subItems: [{ translationKey: "Common.navigation.elements", path: "/admin/form-elements", pro: false }],
+    subItems: [{ translationKey: "elements", path: "/admin/form-elements", pro: false }],
   },
   {
-    translationKey: "Common.navigation.tables",
+    translationKey: "tables",
     icon: <TableIcon />,
-    subItems: [{ translationKey: "Common.navigation.basic", path: "/admin/basic-tables", pro: false }],
+    subItems: [{ translationKey: "basic", path: "/admin/basic-tables", pro: false }],
   },
   {
-    translationKey: "Common.navigation.pages",
+    translationKey: "pages",
     icon: <PageIcon />,
     subItems: [
-      { translationKey: "Common.navigation.blank", path: "/admin/blank", pro: false },
-      { translationKey: "Common.navigation.error404", path: "/admin/error-404", pro: false },
-      { translationKey: "Логотипы", path: "/admin/logos", pro: false },
+      { translationKey: "blank", path: "/admin/blank", pro: false },
+      { translationKey: "error404", path: "/admin/error-404", pro: false },
+      { translationKey: "logos", path: "/admin/logos", pro: false },
     ],
   },
 ];
@@ -75,30 +75,30 @@ const navItems: NavItem[] = [
 const othersItems: NavItem[] = [
   {
     icon: <PieChartIcon />,
-    translationKey: "Common.navigation.charts",
+    translationKey: "charts",
     subItems: [
-      { translationKey: "Common.navigation.line", path: "/admin/line-chart", pro: false },
-      { translationKey: "Common.navigation.bar", path: "/admin/bar-chart", pro: false },
+      { translationKey: "line", path: "/admin/line-chart", pro: false },
+      { translationKey: "bar", path: "/admin/bar-chart", pro: false },
     ],
   },
   {
     icon: <BoxCubeIcon />,
-    translationKey: "Common.navigation.uiElements",
+    translationKey: "uiElements",
     subItems: [
-      { translationKey: "Common.navigation.alerts", path: "/admin/alerts", pro: false },
-      { translationKey: "Common.navigation.avatar", path: "/admin/avatars", pro: false },
-      { translationKey: "Common.navigation.badge", path: "/admin/badge", pro: false },
-      { translationKey: "Common.navigation.buttons", path: "/admin/buttons", pro: false },
-      { translationKey: "Common.navigation.images", path: "/admin/images", pro: false },
-      { translationKey: "Common.navigation.videos", path: "/admin/videos", pro: false },
+      { translationKey: "alerts", path: "/admin/alerts", pro: false },
+      { translationKey: "avatar", path: "/admin/avatars", pro: false },
+      { translationKey: "badge", path: "/admin/badge", pro: false },
+      { translationKey: "buttons", path: "/admin/buttons", pro: false },
+      { translationKey: "images", path: "/admin/images", pro: false },
+      { translationKey: "videos", path: "/admin/videos", pro: false },
     ],
   },
   {
     icon: <PlugInIcon />,
-    translationKey: "Common.navigation.auth",
+    translationKey: "auth",
     subItems: [
-      { translationKey: "Common.navigation.signIn", path: "/signin", pro: false },
-      { translationKey: "Common.navigation.signUp", path: "/signup", pro: false },
+      { translationKey: "signIn", path: "/signin", pro: false },
+      { translationKey: "signUp", path: "/signup", pro: false },
     ],
   },
 ];
@@ -122,7 +122,8 @@ const AppSidebar: React.FC = () => {
   } | null>(null);
   const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>({});
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const { t } = useLanguage();
+  const t = useTranslations('Common.navigation');
+  const tSidebar = useTranslations('Common.sidebar');
   const [showTooltip, setShowTooltip] = useState(false);
   const [showSidebarIcon, setShowSidebarIcon] = useState(false);
 
@@ -539,7 +540,7 @@ const AppSidebar: React.FC = () => {
             {showTooltip && !isExpanded && (
               <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
                 <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  {t('Common.sidebar.openSidebar')}
+                  {tSidebar('openSidebar')}
                   <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
                 </div>
         </div>
@@ -549,7 +550,7 @@ const AppSidebar: React.FC = () => {
             {showTooltip && isExpanded && !isMobileOpen && (
               <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
                 <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  {isPinned ? t('Common.sidebar.unpinSidebar') : t('Common.sidebar.pinSidebar')}
+                  {isPinned ? tSidebar('unpinSidebar') : tSidebar('pinSidebar')}
                   <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
                 </div>
               </div>

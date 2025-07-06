@@ -1,5 +1,4 @@
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import { useLanguage } from "@/hooks/useLanguage";
 
 export default function Error404Page() {
   return (

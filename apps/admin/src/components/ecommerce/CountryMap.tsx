@@ -3,7 +3,8 @@ import React, { useMemo } from "react";
 // import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
 import dynamic from "next/dynamic";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 // Импортируем новый хук
 import { useTranslatedMapData } from "@/hooks/useTranslatedMapData";
 
@@ -42,7 +43,9 @@ type BaseMarker = {
 type TranslatedMarker = Omit<BaseMarker, 'nameKey'> & { name: string };
 
 const CountryMap: React.FC<CountryMapProps> = ({ mapColor, markersData = [] }) => {
-  const { t, language } = useLanguage();
+  const t = useTranslations('Common');
+  const params = useParams();
+  const language = params?.locale as string || 'ru';
   const translatedPaths = useTranslatedMapData();
 
   // Используем useMemo для создания ПОЛНОГО объекта карты, но только когда translatedPaths меняется
@@ -69,7 +72,7 @@ const CountryMap: React.FC<CountryMapProps> = ({ mapColor, markersData = [] }) =
 
       return {
         latLng: data.latLng,
-        nameKey: `Common.countries.${data.code}`, // Формируем ключ как раньше
+        nameKey: `countries.${data.code}`, // Формируем ключ без префикса Common
         style: { // Динамический стиль
           fill: "#465FFF", 
           r: radius, // Используем вычисленный радиус

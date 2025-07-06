@@ -10,7 +10,7 @@ import {
 } from "../ui/table";
 import Badge from "../ui/badge/Badge";
 import Image from "next/image";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 // Define the TypeScript interface for the table rows
 interface Product {
@@ -74,14 +74,14 @@ const tableData: Product[] = [
 ];
 
 export default function RecentOrders() {
-  const { t } = useLanguage();
+  const t = useTranslations('Dashboard');
 
   return (
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-4 pb-3 pt-4 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6">
       <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            {t('Dashboard.orders.recent.title')}
+            {t('orders.recent.title')}
           </h3>
         </div>
 
@@ -122,10 +122,10 @@ export default function RecentOrders() {
                 strokeWidth="1.5"
               />
             </svg>
-            {t('Dashboard.orders.recent.filter')}
+            {t('orders.recent.filter')}
           </button>
           <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-            {t('Dashboard.orders.recent.seeAll')}
+            {t('orders.recent.seeAll')}
           </button>
         </div>
       </div>
@@ -137,25 +137,25 @@ export default function RecentOrders() {
                 isHeader
                 className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
               >
-                {t('Dashboard.orders.recent.products')}
+                {t('orders.recent.products')}
               </TableCell>
               <TableCell
                 isHeader
                 className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
               >
-                {t('Dashboard.orders.recent.category')}
+                {t('orders.recent.category')}
               </TableCell>
               <TableCell
                 isHeader
                 className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
               >
-                {t('Dashboard.orders.recent.price')}
+                {t('orders.recent.price')}
               </TableCell>
               <TableCell
                 isHeader
                 className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
               >
-                {t('Dashboard.orders.recent.status')}
+                {t('orders.recent.status')}
               </TableCell>
             </TableRow>
           </TableHeader>
@@ -202,10 +202,10 @@ export default function RecentOrders() {
                     }
                   >
                     {product.status === "Delivered"
-                      ? t('Dashboard.orders.status.completed')
+                      ? t('orders.status.completed')
                       : product.status === "Pending"
-                      ? t('Dashboard.orders.status.pending')
-                      : t('Dashboard.orders.status.cancelled')}
+                      ? t('orders.status.pending')
+                      : t('orders.status.cancelled')}
                   </Badge>
                 </TableCell>
               </TableRow>

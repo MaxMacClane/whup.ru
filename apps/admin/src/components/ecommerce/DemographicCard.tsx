@@ -8,12 +8,13 @@ import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import Flag from '@/components/Flags';
 import { useTranslatedMapData } from "@/hooks/useTranslatedMapData";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 import { MarkerInputData } from "./CountryMap";
 
 export default function DemographicCard() {
   const translatedCountryData = useTranslatedMapData();
-  const { t } = useLanguage();
+  const t = useTranslations('Dashboard');
+  const tCommon = useTranslations('Common');
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,10 +58,10 @@ export default function DemographicCard() {
       <div className="flex justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            {t('Dashboard.charts.demographics.title')}
+            {t('charts.demographics.title')}
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            {t('Dashboard.charts.demographics.subtitle')}
+            {t('charts.demographics.subtitle')}
           </p>
         </div>
 
@@ -77,13 +78,13 @@ export default function DemographicCard() {
               onItemClick={closeDropdown}
               className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
-              {t('Common.common.viewMore')}
+              {tCommon('common.viewMore')}
             </DropdownItem>
             <DropdownItem
               onItemClick={closeDropdown}
               className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
-              {t('Common.common.delete')}
+              {tCommon('common.delete')}
             </DropdownItem>
           </Dropdown>
         </div>

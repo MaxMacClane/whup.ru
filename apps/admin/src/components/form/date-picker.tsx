@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import flatpickr from 'flatpickr';
 import Label from './Label';
 import { CalenderIcon } from '../../icons';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useParams } from 'next/navigation';
 import { useTheme } from '@/context/ThemeContext';
 import Hook = flatpickr.Options.Hook;
 import DateOption = flatpickr.Options.DateOption;
@@ -26,7 +26,8 @@ export default function DatePicker({
   defaultDate,
   placeholder,
 }: PropsType) {
-  const { language } = useLanguage();
+  const params = useParams();
+  const language = params?.locale as string || 'ru';
   const { theme: currentAppTheme } = useTheme();
 
   // --- Обертки для событий Flatpickr ---
@@ -74,7 +75,7 @@ export default function DatePicker({
       enableTime: true, 
       dateFormat: language === 'ru' ? "d.m.Y H:i" : "Y-m-d H:i", 
       defaultDate,
-      locale: localeConfig,
+      ...(localeConfig && { locale: localeConfig }),
       closeOnSelect: false,
       onChange: handleFlatpickrChange,
       onClose: handleFlatpickrClose,

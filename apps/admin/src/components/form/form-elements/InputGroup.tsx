@@ -7,11 +7,11 @@ import Input from "../input/InputField";
 import { EnvelopeIcon } from "../../../icons";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 import { useEmailValidation } from "../validation/EmailValidation";
 
 export default function InputGroup() {
-  const { t } = useLanguage();
+  const t = useTranslations('Forms');
   const [phoneNumber, setPhoneNumber] = useState<string | undefined>();
   const emailInputRef = useRef<HTMLInputElement>(null);
   const { validationState: emailValidationState, validate: validateEmailInput } = useEmailValidation();
@@ -28,10 +28,10 @@ export default function InputGroup() {
   };
 
   return (
-    <ComponentCard title={t('Forms.inputGroup.title')}>
+    <ComponentCard title={t('inputGroup.title')}>
       <div className="space-y-6">
         <div>
-          <Label htmlFor="email">{t('Forms.inputGroup.labelEmail')}</Label>
+          <Label htmlFor="email">{t('inputGroup.labelEmail')}</Label>
           <div className="relative">
             <Input
               ref={emailInputRef}
@@ -51,11 +51,11 @@ export default function InputGroup() {
         </div>
         
         <div>
-          <Label>{t('Forms.inputGroup.labelPhone')}</Label>
+          <Label>{t('inputGroup.labelPhone')}</Label>
           <PhoneInput
             international
             defaultCountry="RU"
-            placeholder={t('Forms.inputGroup.placeholderPhone') || "Enter phone number"}
+            placeholder={t('inputGroup.placeholderPhone') || "Enter phone number"}
             value={phoneNumber}
             onChange={setPhoneNumber}
             countrySelectProps={{ className: "input-phone-country-select" }}

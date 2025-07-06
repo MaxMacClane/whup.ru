@@ -3,10 +3,10 @@
 import React from "react";
 import Badge from "../ui/badge/Badge";
 import { ArrowDownIcon, ArrowUpIcon, BoxIconLine, GroupIcon } from "@/icons";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 export const EcommerceMetrics = () => {
-  const { t } = useLanguage();
+  const t = useTranslations('Dashboard');
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
@@ -19,7 +19,7 @@ export const EcommerceMetrics = () => {
         <div className="flex items-end justify-between mt-5">
           <div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              {t('Dashboard.metrics.totalCustomers')}
+              {t('metrics.totalCustomers')}
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
               3,782
@@ -41,7 +41,7 @@ export const EcommerceMetrics = () => {
         <div className="flex items-end justify-between mt-5">
           <div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              {t('Dashboard.metrics.totalOrders')}
+              {t('metrics.totalOrders')}
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
               5,359

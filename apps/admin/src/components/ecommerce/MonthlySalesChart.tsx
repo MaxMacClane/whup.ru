@@ -6,7 +6,7 @@ import { MoreDotIcon } from "@/icons";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 // Dynamically import the ReactApexChart component
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -14,7 +14,8 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 });
 
 export default function MonthlySalesChart() {
-  const { t } = useLanguage();
+  const t = useTranslations('Dashboard');
+  const tCommon = useTranslations('Common');
   
   const options: ApexOptions = {
     colors: ["#465fff"],
@@ -44,18 +45,18 @@ export default function MonthlySalesChart() {
     },
     xaxis: {
       categories: [
-        t('Common.months.jan'),
-        t('Common.months.feb'),
-        t('Common.months.mar'),
-        t('Common.months.apr'),
-        t('Common.months.may'),
-        t('Common.months.jun'),
-        t('Common.months.jul'),
-        t('Common.months.aug'),
-        t('Common.months.sep'),
-        t('Common.months.oct'),
-        t('Common.months.nov'),
-        t('Common.months.dec'),
+        tCommon('months.jan'),
+        tCommon('months.feb'),
+        tCommon('months.mar'),
+        tCommon('months.apr'),
+        tCommon('months.may'),
+        tCommon('months.jun'),
+        tCommon('months.jul'),
+        tCommon('months.aug'),
+        tCommon('months.sep'),
+        tCommon('months.oct'),
+        tCommon('months.nov'),
+        tCommon('months.dec'),
       ],
       axisBorder: {
         show: false,
@@ -97,7 +98,7 @@ export default function MonthlySalesChart() {
   };
   const series = [
     {
-      name: t('Dashboard.charts.monthlySales.sales'),
+      name: t('charts.monthlySales.sales'),
       data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
     },
   ];
@@ -115,7 +116,7 @@ export default function MonthlySalesChart() {
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-          {t('Dashboard.charts.monthlySales.title')}
+          {t('charts.monthlySales.title')}
         </h3>
 
         <div className="relative inline-block">
@@ -131,13 +132,13 @@ export default function MonthlySalesChart() {
               onItemClick={closeDropdown}
               className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
-              {t('Common.common.viewMore')}
+              {tCommon('common.viewMore')}
             </DropdownItem>
             <DropdownItem
               onItemClick={closeDropdown}
               className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
-              {t('Common.common.delete')}
+              {tCommon('common.delete')}
             </DropdownItem>
           </Dropdown>
         </div>

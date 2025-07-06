@@ -6,11 +6,11 @@ import { Modal } from "../ui/modal";
 import Button from "../ui/button/Button";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 export default function UserAddressCard() {
   const { isOpen, openModal, closeModal } = useModal();
-  const { t } = useLanguage();
+  const t = useTranslations('Profile');
 
   const handleSave = () => {
     // Handle save logic here
@@ -22,13 +22,13 @@ export default function UserAddressCard() {
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <h4 className="text-lg font-semibold text-gray-800 dark:text-white/90 lg:mb-6">
-            {t('Profile.address.title')}
+            {t('address.title')}
           </h4>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                {t('Profile.address.countryLabel')}
+                {t('address.countryLabel')}
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
                 United States
@@ -37,7 +37,7 @@ export default function UserAddressCard() {
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                {t('Profile.address.cityStateLabel')}
+                {t('address.cityStateLabel')}
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
                 Phoenix, Arizona, United States.
@@ -46,7 +46,7 @@ export default function UserAddressCard() {
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                {t('Profile.address.postalCodeLabel')}
+                {t('address.postalCodeLabel')}
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
                 ERT 2489
@@ -55,7 +55,7 @@ export default function UserAddressCard() {
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                {t('Profile.address.taxIdLabel')}
+                {t('address.taxIdLabel')}
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
                 AS4568384
@@ -83,7 +83,7 @@ export default function UserAddressCard() {
               fill=""
             />
           </svg>
-          {t('Profile.address.editButton')}
+          {t('address.editButton')}
         </button>
       </div>
 
@@ -91,42 +91,42 @@ export default function UserAddressCard() {
         <div className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
           <div className="px-2 pr-14">
             <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
-              {t('Profile.modalEditAddress.title')}
+              {t('modalEditAddress.title')}
             </h4>
             <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
-              {t('Profile.modalEditAddress.subtitle')}
+              {t('modalEditAddress.subtitle')}
             </p>
           </div>
           <form className="flex flex-col">
             <div className="custom-scrollbar overflow-y-auto px-2 pb-3">
               <div className="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
                 <div>
-                  <Label>{t('Profile.modalEditAddress.countryLabel')}</Label>
+                  <Label>{t('modalEditAddress.countryLabel')}</Label>
                   <Input type="text" defaultValue="United States" />
                 </div>
 
                 <div>
-                  <Label>{t('Profile.modalEditAddress.cityStateLabel')}</Label>
+                  <Label>{t('modalEditAddress.cityStateLabel')}</Label>
                   <Input type="text" defaultValue="Phoenix, Arizona, United States." />
                 </div>
 
                 <div>
-                  <Label>{t('Profile.modalEditAddress.postalCodeLabel')}</Label>
+                  <Label>{t('modalEditAddress.postalCodeLabel')}</Label>
                   <Input type="text" defaultValue="ERT 2489" />
                 </div>
 
                 <div>
-                  <Label>{t('Profile.modalEditAddress.taxIdLabel')}</Label>
+                  <Label>{t('modalEditAddress.taxIdLabel')}</Label>
                   <Input type="text" defaultValue="AS4568384" />
                 </div>
               </div>
             </div>
             <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
               <Button size="sm" variant="outline" onClick={closeModal}>
-                {t('Profile.modalEditAddress.closeButton')}
+                {t('modalEditAddress.closeButton')}
               </Button>
               <Button size="sm" onClick={handleSave}>
-                {t('Profile.modalEditAddress.saveButton')}
+                {t('modalEditAddress.saveButton')}
               </Button>
             </div>
           </form>

@@ -83,7 +83,8 @@
       "videos": "Videos",
       "auth": "Authentication",
       "signIn": "Sign In",
-      "signUp": "Sign Up"
+      "signUp": "Sign Up",
+      "logos": "Logos"
     },
     "common": {
       "menu": "Menu",
@@ -175,6 +176,7 @@
       "monthlySales": {
         "title": "Monthly Sales",
         "subtitle": "Sales performance overview",
+        "sales": "Sales",
         "revenue": "Revenue",
         "orders": "Orders",
         "thisMonth": "This Month",
@@ -195,6 +197,7 @@
         "subtitle": "Performance metrics",
         "visitors": "Visitors",
         "sales": "Sales",
+        "revenue": "Revenue",
         "earnings": "Earnings"
       },
       "demographics": {
@@ -210,6 +213,7 @@
         "title": "Recent Orders",
         "orderID": "Order ID",
         "customer": "Customer",
+        "products": "Products",
         "product": "Product",
         "category": "Category",
         "price": "Price",
@@ -347,6 +351,32 @@
         "option4": "Option 4",
         "option5": "Option 5"
       }
+    },
+    "inputGroup": { 
+      "title": "Input Groups",
+      "labelEmail": "Email",
+      "labelPhone": "Phone",
+      "placeholderPhone": "Enter phone number"
+    },
+    "textareaInput": {
+      "title": "Textarea Input",
+      "labelDefault": "Default Textarea",
+      "placeholderDefault": "Default textarea",
+      "labelActive": "Active Textarea",
+      "placeholderActive": "Active textarea",
+      "labelError": "Error Textarea",
+      "hint": "Please enter a valid message."
+    },
+    "inputStates": {
+      "title": "Input States",
+      "subtitle": "Validation styles for error, success and disabled states on form controls.",
+      "labelEmail": "Email",
+      "placeholderEmail": "Enter your email",
+      "hintSuccess": "Valid email!",
+      "hintDisabled": "This field is disabled."
+    },
+    "radioCheckboxes": {
+      "title": "Radio & Checkboxes"
     }
   },
   "Notifications": {
@@ -593,29 +623,6 @@
        "closeButton": "Close",
        "saveButton": "Save Changes"
     }
-  },
-  "textareaInput": {
-    "title": "Textarea Input",
-    "labelDefault": "Default Textarea",
-    "placeholderDefault": "Default textarea",
-    "labelActive": "Active Textarea",
-    "placeholderActive": "Active textarea",
-    "labelError": "Error Textarea",
-    "hint": "Please enter a valid message."
-  },
-  "inputStates": {
-    "title": "Input States",
-    "subtitle": "Validation styles for error, success and disabled states on form controls.",
-    "labelEmail": "Email",
-    "placeholderEmail": "Enter your email",
-    "hintSuccess": "Valid email!",
-    "hintDisabled": "This field is disabled."
-  },
-  "inputGroup": {
-    "title": "Input Group",
-    "labelEmail": "Email",
-    "labelPhone": "Phone",
-    "placeholderPhone": "Enter phone number"
   },
   "BlankPage": {
     "pageTitle": "Blank Page",

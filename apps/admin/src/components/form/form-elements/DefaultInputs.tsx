@@ -6,11 +6,11 @@ import Label from '../Label';
 import Input from '../input/InputField';
 import PasswordInput from '../input/PasswordInput';
 import DatePicker from '../date-picker';
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 import CreditCardInput from '../input/CreditCardInput';
 
 export default function DefaultInputs() {
-  const { t } = useLanguage();
+  const t = useTranslations('Forms');
   const [password, setPassword] = useState('');
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [creditCard, setCreditCard] = useState({});
@@ -30,36 +30,36 @@ export default function DefaultInputs() {
   };
 
   return (
-    <ComponentCard title={t('Forms.defaultInputs.title')}>
+    <ComponentCard title={t('defaultInputs.title')}>
       <div className="space-y-5">
         <div>
-          <Label htmlFor="input1">{t('Forms.defaultInputs.labelInput')}</Label>
+          <Label htmlFor="input1">{t('defaultInputs.labelInput')}</Label>
           <Input type="text" />
         </div>
         <div>
-          <Label htmlFor="input2">{t('Forms.defaultInputs.labelInputWithPlaceholder')}</Label>
-          <Input type="text" placeholder={t('Forms.defaultInputs.placeholderEmail')} />
+          <Label htmlFor="input2">{t('defaultInputs.labelInputWithPlaceholder')}</Label>
+          <Input type="text" placeholder={t('defaultInputs.placeholderEmail')} />
         </div>
         <div>
-          <Label htmlFor="passwordInput">{t('Forms.defaultInputs.labelPassword')}</Label>
+          <Label htmlFor="passwordInput">{t('defaultInputs.labelPassword')}</Label>
           <PasswordInput
-            placeholder={t('Forms.defaultInputs.placeholderPassword')}
+            placeholder={t('defaultInputs.placeholderPassword')}
             onChange={handlePasswordChange}
             showHints={true}
           />
         </div>
         <div>
-          <Label htmlFor="datePicker">{t('Forms.defaultInputs.labelDatePicker')}</Label>
+          <Label htmlFor="datePicker">{t('defaultInputs.labelDatePicker')}</Label>
           <DatePicker
             id="datePicker"
-            placeholder={t('Forms.defaultInputs.placeholderDatePicker')}
+            placeholder={t('defaultInputs.placeholderDatePicker')}
             onChange={handleDateChange}
           />
         </div>
         <div className="md:col-span-2">
           <CreditCardInput
             id="creditCard"
-            label={t('Forms.defaultInputs.labelInputWithPayment')}
+            label={t('defaultInputs.labelInputWithPayment')}
             onChange={handleCreditCardChange}
           />
         </div>

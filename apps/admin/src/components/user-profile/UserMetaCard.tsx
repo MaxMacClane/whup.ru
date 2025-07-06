@@ -7,11 +7,11 @@ import Button from "../ui/button/Button";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
 import Image from "next/image";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 export default function UserMetaCard() {
   const { isOpen, openModal, closeModal } = useModal();
-  const { t } = useLanguage();
+  const t = useTranslations('Profile');
   
   const handleSave = () => {
     // Handle save logic here
@@ -135,7 +135,7 @@ export default function UserMetaCard() {
                 fill=""
               />
             </svg>
-            {t('Profile.meta.editButton')}
+            {t('meta.editButton')}
           </button>
         </div>
       </div>

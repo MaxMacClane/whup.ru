@@ -3,16 +3,36 @@
 
 import Link from "next/link";
 import React from "react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 interface BreadcrumbProps {
   pageTitle: string;
 }
 
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
-  const { t } = useLanguage();
+  const tCommon = useTranslations('Common');
+  const tBlankPage = useTranslations('BlankPage');
+  const tProfile = useTranslations('Profile');
 
-  const translatedPageTitle = t(pageTitle);
+  // Определяем, какой контекст использовать на основе pageTitle
+  const getTranslatedTitle = (title: string) => {
+    // Если pageTitle начинается с префикса, определяем контекст
+    if (title.startsWith('BlankPage.')) {
+      const key = title.replace('BlankPage.', '');
+      return tBlankPage(key);
+    } else if (title.startsWith('Profile.')) {
+      const key = title.replace('Profile.', '');
+      return tProfile(key);
+    } else if (title.startsWith('Common.')) {
+      const key = title.replace('Common.', '');
+      return tCommon(key);
+    } else {
+      // Если нет префикса, возвращаем как есть (это готовый текст)
+      return title;
+    }
+  };
+
+  const translatedPageTitle = getTranslatedTitle(pageTitle);
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
@@ -29,7 +49,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
               className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
               href="/"
             >
-              {t('Common.common.breadcrumb.home')}
+              {tCommon('common.breadcrumb.home')}
               <svg
                 className="stroke-current"
                 width="17"

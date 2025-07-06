@@ -4,10 +4,10 @@ import React from "react";
 import Image from "next/image";
 import { useSidebar } from "@/context/SidebarContext";
 import { DropdownItem } from "@/components/ui/dropdown/DropdownItem";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
 
 export default function MobileNotificationSidebar() {
-  const { t } = useLanguage();
+  const t = useTranslations('ui');
   const {
     isNotificationSidebarOpen,
     setIsNotificationSidebarOpen,
@@ -147,7 +147,7 @@ export default function MobileNotificationSidebar() {
           {/* Заголовок уведомлений вместо логотипа */}
           <div className="flex items-center">
             <span className="text-xl font-semibold text-gray-900 dark:text-white whitespace-nowrap">
-              Notifications
+              {t('notifications')}
             </span>
           </div>
 

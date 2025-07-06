@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { worldMill } from '@react-jvectormap/world';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 // Определяем типы, как в CountryMap
 type PathData = {
@@ -21,7 +22,9 @@ export type TranslatedPathsData = WorldMillPaths;
  * а значения - объекты PathData с переведенным полем name.
  */
 export const useTranslatedMapData = (): TranslatedPathsData => {
-  const { t, language } = useLanguage();
+  const t = useTranslations('Common');
+  const params = useParams();
+  const language = params?.locale as string || 'ru';
 
   const translatedPaths = useMemo(() => {
     console.log(`[useTranslatedMapData] Recalculating for language: ${language}...`);
@@ -43,7 +46,7 @@ export const useTranslatedMapData = (): TranslatedPathsData => {
             pathDataCopy.name = originalName;
           } else {
             // Если язык НЕ английский (русский), пытаемся перевести
-            const translationKey = `Common.countries.${code.toLowerCase()}`;
+            const translationKey = `countries.${code.toLowerCase()}`;
             const translatedName = t(translationKey);
             // Используем перевод, если он найден, иначе - оригинальное имя
             pathDataCopy.name = (translatedName !== translationKey) ? translatedName : originalName;

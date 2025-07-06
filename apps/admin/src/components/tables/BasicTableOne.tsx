@@ -11,7 +11,8 @@ import {
 
 import Badge from "../ui/badge/Badge";
 import Image from "next/image";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 interface Order {
   id: number;
@@ -115,7 +116,9 @@ const tableData: Order[] = [
 ];
 
 export default function BasicTableOne() {
-  const { t, language } = useLanguage();
+  const t = useTranslations('Tables');
+  const params = useParams();
+  const language = params?.locale as string || 'ru';
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
@@ -128,31 +131,31 @@ export default function BasicTableOne() {
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  {t('Tables.BasicTable.user')}
+                  {t('BasicTable.user')}
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  {t('Tables.BasicTable.projectName')}
+                  {t('BasicTable.projectName')}
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  {t('Tables.BasicTable.team')}
+                  {t('BasicTable.team')}
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  {t('Tables.BasicTable.status')}
+                  {t('BasicTable.status')}
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  {t('Tables.BasicTable.budget')}
+                  {t('BasicTable.budget')}
                 </TableCell>
               </TableRow>
             </TableHeader>
@@ -176,13 +179,13 @@ export default function BasicTableOne() {
                           {order.user.name}
                         </span>
                         <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                          {t(`Tables.BasicTable.roles.${roleKey(order.user.role)}`)}
+                          {t(`BasicTable.roles.${roleKey(order.user.role)}`)}
                         </span>
                       </div>
                     </div>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
-                    {t(`Tables.BasicTable.projects.${projectKey(order.projectName)}`)}
+                    {t(`BasicTable.projects.${projectKey(order.projectName)}`)}
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                     <div className="flex -space-x-2">
@@ -213,7 +216,7 @@ export default function BasicTableOne() {
                           : "error"
                       }
                     >
-                      {t(`Tables.BasicTable.statuses.${order.status}`)}
+                      {t(`BasicTable.statuses.${order.status}`)}
                     </Badge>
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400">
