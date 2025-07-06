@@ -3,11 +3,11 @@
 import { useLanguage } from '@/hooks/useLanguage';
 
 export const LanguageSwitcher = () => {
-  const { language, setLanguageFast } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
     const newLanguage = language === 'ru' ? 'en' : 'ru';
-    setLanguageFast(newLanguage);
+    setLanguage(newLanguage);
   };
 
   return (

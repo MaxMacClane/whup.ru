@@ -9,11 +9,33 @@ import Link from "next/link";
 import React, { useState ,useEffect,useRef} from "react";
 
 const AppHeader: React.FC = () => {
-  const { isMobileOpen, toggleMobileSidebar, isApplicationMenuOpen, setApplicationMenuOpen } = useSidebar();
+  const { 
+    isMobileOpen, 
+    toggleMobileSidebar, 
+    isApplicationMenuOpen, 
+    setApplicationMenuOpen,
+    isNotificationSidebarOpen,
+    toggleNotificationSidebar 
+  } = useSidebar();
 
   const toggleApplicationMenu = () => {
+    // Только на мобильных: если открыт сайдбар уведомлений, сначала закрываем его
+    if (window.innerWidth < 1024 && isNotificationSidebarOpen) {
+      toggleNotificationSidebar();
+    }
+    // Затем переключаем меню настроек
     setApplicationMenuOpen(!isApplicationMenuOpen);
   };
+
+  const handleMobileSidebarToggle = () => {
+    // Только на мобильных: если открыт сайдбар уведомлений, сначала закрываем его
+    if (window.innerWidth < 1024 && isNotificationSidebarOpen) {
+      toggleNotificationSidebar();
+    }
+    // Затем переключаем основной сайдбар
+    toggleMobileSidebar();
+  };
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -32,7 +54,7 @@ const AppHeader: React.FC = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 lg:border-b">
+    <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 lg:border-b dark:shadow-[0_1px_0_0_rgba(255,255,255,0.1)]">
       <div className="flex flex-col items-center justify-between grow lg:flex-row lg:px-6">
         <div className="flex items-center justify-start w-full gap-2 px-3 py-3 border-b border-gray-200 dark:border-gray-800 sm:gap-4 lg:justify-normal lg:border-b-0 lg:px-0 lg:py-4">
           {/* Группа: Кнопка меню + Логотип */}
@@ -40,7 +62,7 @@ const AppHeader: React.FC = () => {
             {/* Кнопка сайдбара только для мобильных */}
           <button
               className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={toggleMobileSidebar}
+              onClick={handleMobileSidebarToggle}
               aria-label="Toggle Mobile Sidebar"
           >
             {isMobileOpen ? (
@@ -162,7 +184,6 @@ const AppHeader: React.FC = () => {
           </div>
         </div>
         <div
-          data-application-menu
           className={`${
             isApplicationMenuOpen ? "flex" : "hidden"
           } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:justify-end lg:px-0 lg:shadow-none`}

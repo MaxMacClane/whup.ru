@@ -153,15 +153,39 @@ const AppSidebar: React.FC = () => {
       return;
     }
     
-    // Десктопная логика - переключаем закрепление
-    if (isExpanded && !isMobileOpen) {
+    // Десктопная логика
+    if (isExpanded) {
+      // Если развернут - переключаем закрепление
       setPinned(!isPinned);
+    } else {
+      // Если свернут - разворачиваем с наведением
+      setIsHovered(true);
     }
   };
 
   const handleContentClick = (e: React.MouseEvent) => {
     // Останавливаем всплытие события, чтобы клик по контенту не закрывал сайдбар
     e.stopPropagation();
+  };
+
+  const handleButtonClick = (e: React.MouseEvent) => {
+    // Останавливаем всплытие события
+    e.stopPropagation();
+    
+    // Если это мобильная версия, не обрабатываем
+    if (isMobileOpen) {
+      return;
+    }
+    
+    // Десктопная логика для кнопки
+    if (isExpanded) {
+      // Если развернут - переключаем закрепление
+      setPinned(!isPinned);
+    } else {
+      // Если свернут - разворачиваем и закрепляем
+      setIsHovered(true);
+      setPinned(true);
+    }
   };
 
   // Функция для создания локализованного пути
@@ -410,7 +434,7 @@ const AppSidebar: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleSidebarClick}
     >
-            <div className="py-2 flex items-center relative" onClick={handleContentClick}>
+            <div className="py-4 flex items-center justify-between w-full" onClick={handleContentClick}>
         {/* Логотип - всегда фиксированный размер и позиция - скрыт в мобильной версии */}
         <div className="hidden lg:flex items-center">
           <Link href={createLocalizedPath("/admin")} className="flex items-center" onClick={handleContentClick}>
@@ -420,15 +444,15 @@ const AppSidebar: React.FC = () => {
               src="/images/logo/logo-1.svg"
               alt="Whup.ru Logo"
               width={40}
-              height={25}
+                height={40}
               />
-            <Image
+              <Image
               className="flex-shrink-0 hidden dark:block"
               src="/images/logo/logo-2.svg"
               alt="Whup.ru Logo"
               width={40}
-              height={25}
-            />
+                height={40}
+              />
             
             {/* Название - появляется плавно с меньшей задержкой */}
             <div 
@@ -442,104 +466,103 @@ const AppSidebar: React.FC = () => {
                 overflow: 'hidden'
               }}
             >
-              <span className="text-xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
+              <span className="text-xl font-semibold text-gray-900 dark:text-white whitespace-nowrap">
                 Whup.ru
               </span>
             </div>
-          </Link>
-        </div>
+        </Link>
+      </div>
+      
+        {/* Кнопка управления сайдбаром - только для десктопа */}
+        <div className="hidden lg:block">
+          <div 
+            className={`group sidebar-control-button`}
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            onClick={handleButtonClick}
+          >
+            {/* Иконка для свернутого сайдбара - показывается только при наведении */}
+            {!isExpanded && (
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-gray-700 h-10 w-10 hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white cursor-pointer">
+                  {/* Адаптивная иконка стрелки вправо */}
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M17.4175 9.9986C17.4178 10.1909 17.3446 10.3832 17.198 10.53L12.2013 15.5301C11.9085 15.8231 11.4337 15.8233 11.1407 15.5305C10.8477 15.2377 10.8475 14.7629 11.1403 14.4699L14.8604 10.7472L3.33301 10.7472C2.91879 10.7472 2.58301 10.4114 2.58301 9.99715C2.58301 9.58294 2.91879 9.24715 3.33301 9.24715L14.8549 9.24715L11.1403 5.53016C10.8475 5.23717 10.8477 4.7623 11.1407 4.4695C11.4336 4.1767 11.9085 4.17685 12.2013 4.46984L17.1588 9.43049C17.3173 9.568 17.4175 9.77087 17.4175 9.99715C17.4175 9.99763 17.4175 9.99812 17.4175 9.9986Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            )}
 
-        {/* Интерактивная область для управления сайдбаром - только для десктопа */}
-        <div 
-          className={`absolute inset-0 group sidebar-logo-area hidden lg:block`}
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-        >
-          {/* Иконка для свернутого сайдбара - показывается только при наведении */}
-          {!isExpanded && (
-            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-300">
-              {/* Адаптивная иконка стрелки вправо */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M17.4175 9.9986C17.4178 10.1909 17.3446 10.3832 17.198 10.53L12.2013 15.5301C11.9085 15.8231 11.4337 15.8233 11.1407 15.5305C10.8477 15.2377 10.8475 14.7629 11.1403 14.4699L14.8604 10.7472L3.33301 10.7472C2.91879 10.7472 2.58301 10.4114 2.58301 9.99715C2.58301 9.58294 2.91879 9.24715 3.33301 9.24715L14.8549 9.24715L11.1403 5.53016C10.8475 5.23717 10.8477 4.7623 11.1407 4.4695C11.4336 4.1767 11.9085 4.17685 12.2013 4.46984L17.1588 9.43049C17.3173 9.568 17.4175 9.77087 17.4175 9.99715C17.4175 9.99763 17.4175 9.99812 17.4175 9.9986Z"
-                  fill="#6B7280"
-                  className="dark:fill-gray-300"
-                />
-              </svg>
-            </div>
-          )}
-
-          {/* Иконка для развернутого сайдбара - всегда видна когда развернут с задержкой */}
-          {isExpanded && !isMobileOpen && (
-            <div className={`absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full p-2 shadow-lg border transition-all duration-200 ${
-              isPinned 
-                ? 'border-blue-500 bg-blue-50 dark:border-blue-400 dark:bg-blue-900/20' 
-                : 'border-gray-200 bg-white dark:border-gray-300 dark:bg-gray-800'
-            } ${
-              showSidebarIcon ? 'opacity-100' : 'opacity-0'
-            }`}>
-              {/* Адаптивная иконка сайдбара */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-              >
-                <path
+            {/* Иконка для развернутого сайдбара - всегда видна когда развернут с задержкой */}
+            {isExpanded && !isMobileOpen && (
+              <div className={`relative flex items-center justify-center text-gray-500 transition-colors border rounded-full h-10 w-10 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white transition-all duration-200 cursor-pointer ${
+                isPinned 
+                  ? 'border-blue-500 bg-blue-50 text-blue-600 dark:border-blue-400 dark:bg-blue-900/20 dark:text-blue-400' 
+                  : 'border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900'
+              } ${
+                showSidebarIcon ? 'opacity-100' : 'opacity-0'
+              }`}>
+                {/* Адаптивная иконка сайдбара */}
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
                   fill="none"
-                  stroke={isPinned ? "#2563EB" : "#6B7280"}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M2 12c0-3.69 0-5.534.814-6.841a4.8 4.8 0 0 1 1.105-1.243C5.08 3 6.72 3 10 3h4c3.28 0 4.919 0 6.081.916c.43.338.804.759 1.105 1.243C22 6.466 22 8.31 22 12s0 5.534-.814 6.841a4.8 4.8 0 0 1-1.105 1.243C18.92 21 17.28 21 14 21h-4c-3.28 0-4.919 0-6.081-.916a4.8 4.8 0 0 1-1.105-1.243C2 17.534 2 15.69 2 12m7.5-9v18M5 7h1m-1 3h1"
-                  className={`transition-colors duration-200 ${
-                    isPinned 
-                      ? 'dark:stroke-blue-400' 
-                      : 'dark:stroke-gray-300'
-                  }`}
-            />
-              </svg>
-            </div>
-          )}
-
-          {/* Подсказка для свернутого сайдбара */}
-          {showTooltip && !isExpanded && (
-            <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
-              <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                {t('Common.sidebar.openSidebar')}
-                <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M2 12c0-3.69 0-5.534.814-6.841a4.8 4.8 0 0 1 1.105-1.243C5.08 3 6.72 3 10 3h4c3.28 0 4.919 0 6.081.916c.43.338.804.759 1.105 1.243C22 6.466 22 8.31 22 12s0 5.534-.814 6.841a4.8 4.8 0 0 1-1.105 1.243C18.92 21 17.28 21 14 21h-4c-3.28 0-4.919 0-6.081-.916a4.8 4.8 0 0 1-1.105-1.243C2 17.534 2 15.69 2 12m7.5-9v18M5 7h1m-1 3h1"
+                  />
+                </svg>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Подсказка для развернутого сайдбара */}
-          {showTooltip && isExpanded && !isMobileOpen && (
-            <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
-              <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                {isPinned ? t('Common.sidebar.unpinSidebar') : t('Common.sidebar.pinSidebar')}
-                <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
+            {/* Подсказка для свернутого сайдбара */}
+            {showTooltip && !isExpanded && (
+              <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
+                <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+                  {t('Common.sidebar.openSidebar')}
+                  <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
+                </div>
+        </div>
+      )}
+
+            {/* Подсказка для развернутого сайдбара */}
+            {showTooltip && isExpanded && !isMobileOpen && (
+              <div className="absolute left-full ml-6 top-1/2 transform -translate-y-1/2 z-50">
+                <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+                  {isPinned ? t('Common.sidebar.unpinSidebar') : t('Common.sidebar.pinSidebar')}
+                  <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900 dark:border-r-gray-800"></div>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
       
       
 
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
-        <nav className={`mb-6 transition-all duration-300 lg:pt-0 ${isApplicationMenuOpen ? 'pt-20' : 'pt-2'}`} onClick={(e) => e.stopPropagation()}>
-          <div className="flex flex-col gap-4">
+        <nav className={`mb-6 transition-all duration-300 lg:pt-6 ${isApplicationMenuOpen ? 'pt-20' : 'pt-2'}`} onClick={(e) => e.stopPropagation()}>
+          <div className="flex flex-col gap-4"> 
             <div>
               {renderMenuItems(navItems, "main")}
             </div>

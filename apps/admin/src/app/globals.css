@@ -193,10 +193,6 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    /* Убираем возможные блокировки */
-    position: relative !important;
-    height: auto !important;
-    min-height: 100vh;
   }
 }
 
@@ -792,31 +788,11 @@ input:-webkit-autofill:active {
   @apply border-t border-gray-200 dark:border-gray-700;
 }
 
-/* Обеспечиваем плавную прокрутку на всех устройствах */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Убираем возможные блокировки прокрутки */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100%;
-}
-
-/* Гарантируем прокрутку для main контента */
-main[class*="overflow-y-auto"] {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: contain !important;
-  position: relative !important;
-  height: 100% !important;
-  max-height: 100% !important;
+/* Обеспечиваем прокрутку в мобильной версии */
+@utility mobile-scroll {
+  @apply overflow-y-auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 
