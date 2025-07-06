@@ -1,21 +1,18 @@
+'use client';
 import ComponentCard from "@/components/common/ComponentCard";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import Avatar from "@/components/ui/avatar/Avatar";
-import { Metadata } from "next";
-import React from "react";
-
-export const metadata: Metadata = {
-  title: "Next.js Avatars | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Avatars page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-};
+  import React from "react";
+  import { useTranslations } from 'next-intl';
 
 export default function AvatarPage() {
+  const t = useTranslations('Avatar');
+  
   return (
     <div>
-      <PageBreadcrumb pageTitle="Avatar" />
+      <PageBreadcrumb pageTitle={t('pageTitle')} />
       <div className="space-y-5 sm:space-y-6">
-        <ComponentCard title="Default Avatar">
+        <ComponentCard title={t('defaultAvatar')}>
           {/* Default Avatar (No Status) */}
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
             <Avatar src="/images/user/user-01.jpg" size="xsmall" />
@@ -26,7 +23,7 @@ export default function AvatarPage() {
             <Avatar src="/images/user/user-01.jpg" size="xxlarge" />
           </div>
         </ComponentCard>
-        <ComponentCard title="Avatar with online indicator">
+        <ComponentCard title={t('onlineIndicator')}>
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
             <Avatar
               src="/images/user/user-01.jpg"
@@ -60,7 +57,7 @@ export default function AvatarPage() {
             />
           </div>
         </ComponentCard>
-        <ComponentCard title="Avatar with Offline indicator">
+        <ComponentCard title={t('offlineIndicator')}>
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
             <Avatar
               src="/images/user/user-01.jpg"
@@ -93,8 +90,8 @@ export default function AvatarPage() {
               status="offline"
             />
           </div>
-        </ComponentCard>{" "}
-        <ComponentCard title="Avatar with busy indicator">
+        </ComponentCard>
+        <ComponentCard title={t('busyIndicator')}>
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
             <Avatar
               src="/images/user/user-01.jpg"

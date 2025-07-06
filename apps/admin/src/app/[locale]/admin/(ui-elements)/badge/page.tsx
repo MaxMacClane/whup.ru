@@ -1,50 +1,46 @@
+'use client';
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import Badge from "@/components/ui/badge/Badge";
 import { PlusIcon } from "@/icons";
-import { Metadata } from "next";
-import React from "react";
-
-export const metadata: Metadata = {
-  title: "Next.js Badge | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Badge page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-  // other metadata
-};
+  import React from "react";
+  import { useTranslations } from 'next-intl';
 
 export default function BadgePage() {
+  const t = useTranslations('Badge');
+  
   return (
     <div>
-      <PageBreadcrumb pageTitle="Badges" />
+      <PageBreadcrumb pageTitle={t('pageTitle')} />
       <div className="space-y-5 sm:space-y-6">
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              With Light Background
+              {t('lightBackground')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
               {/* Light Variant */}
               <Badge variant="light" color="primary">
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="light" color="success">
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="light" color="error">
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="light" color="warning">
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="light" color="info">
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="light" color="light">
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="light" color="dark">
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>
@@ -53,32 +49,32 @@ export default function BadgePage() {
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              With Solid Background
+              {t('solidBackground')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-              {/* Light Variant */}
+              {/* Solid Variant */}
               <Badge variant="solid" color="primary">
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="solid" color="success">
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="solid" color="error">
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="solid" color="warning">
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="solid" color="info">
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="solid" color="light">
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="solid" color="dark">
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>
@@ -87,31 +83,31 @@ export default function BadgePage() {
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              Light Background with Left Icon
+              {t('lightBackgroundLeftIcon')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
               <Badge variant="light" color="primary" startIcon={<PlusIcon />}>
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="light" color="success" startIcon={<PlusIcon />}>
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="light" color="error" startIcon={<PlusIcon />}>
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="light" color="warning" startIcon={<PlusIcon />}>
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="light" color="info" startIcon={<PlusIcon />}>
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="light" color="light" startIcon={<PlusIcon />}>
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="light" color="dark" startIcon={<PlusIcon />}>
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>
@@ -120,31 +116,31 @@ export default function BadgePage() {
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              Solid Background with Left Icon
+              {t('solidBackgroundLeftIcon')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
               <Badge variant="solid" color="primary" startIcon={<PlusIcon />}>
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="solid" color="success" startIcon={<PlusIcon />}>
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="solid" color="error" startIcon={<PlusIcon />}>
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="solid" color="warning" startIcon={<PlusIcon />}>
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="solid" color="info" startIcon={<PlusIcon />}>
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="solid" color="light" startIcon={<PlusIcon />}>
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="solid" color="dark" startIcon={<PlusIcon />}>
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>
@@ -153,31 +149,31 @@ export default function BadgePage() {
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              Light Background with Right Icon
+              {t('lightBackgroundRightIcon')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
               <Badge variant="light" color="primary" endIcon={<PlusIcon />}>
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="light" color="success" endIcon={<PlusIcon />}>
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="light" color="error" endIcon={<PlusIcon />}>
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="light" color="warning" endIcon={<PlusIcon />}>
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="light" color="info" endIcon={<PlusIcon />}>
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="light" color="light" endIcon={<PlusIcon />}>
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="light" color="dark" endIcon={<PlusIcon />}>
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>
@@ -186,31 +182,31 @@ export default function BadgePage() {
         <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
           <div className="px-6 py-5">
             <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
-              Solid Background with Right Icon
+              {t('solidBackgroundRightIcon')}
             </h3>
           </div>
           <div className="p-6 border-t border-gray-100 dark:border-gray-800 xl:p-10">
             <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
               <Badge variant="solid" color="primary" endIcon={<PlusIcon />}>
-                Primary
+                {t('colors.primary')}
               </Badge>
               <Badge variant="solid" color="success" endIcon={<PlusIcon />}>
-                Success
+                {t('colors.success')}
               </Badge>{" "}
               <Badge variant="solid" color="error" endIcon={<PlusIcon />}>
-                Error
+                {t('colors.error')}
               </Badge>{" "}
               <Badge variant="solid" color="warning" endIcon={<PlusIcon />}>
-                Warning
+                {t('colors.warning')}
               </Badge>{" "}
               <Badge variant="solid" color="info" endIcon={<PlusIcon />}>
-                Info
+                {t('colors.info')}
               </Badge>
               <Badge variant="solid" color="light" endIcon={<PlusIcon />}>
-                Light
+                {t('colors.light')}
               </Badge>
               <Badge variant="solid" color="dark" endIcon={<PlusIcon />}>
-                Dark
+                {t('colors.dark')}
               </Badge>
             </div>
           </div>

@@ -4,12 +4,16 @@ import React from "react";
 import { ApexOptions } from "apexcharts";
 
 import dynamic from "next/dynamic";
+import { useTranslations } from 'next-intl';
 // Dynamically import the ReactApexChart component
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
 export default function LineChartOne() {
+  const tCommon = useTranslations('Common');
+  const tDashboard = useTranslations('Dashboard');
+  
   const options: ApexOptions = {
     legend: {
       show: false, // Hide legend
@@ -69,18 +73,18 @@ export default function LineChartOne() {
     xaxis: {
       type: "category", // Category-based x-axis
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        tCommon('months.jan'),
+        tCommon('months.feb'),
+        tCommon('months.mar'),
+        tCommon('months.apr'),
+        tCommon('months.may'),
+        tCommon('months.jun'),
+        tCommon('months.jul'),
+        tCommon('months.aug'),
+        tCommon('months.sep'),
+        tCommon('months.oct'),
+        tCommon('months.nov'),
+        tCommon('months.dec'),
       ],
       axisBorder: {
         show: false, // Hide x-axis border
@@ -110,11 +114,11 @@ export default function LineChartOne() {
 
   const series = [
     {
-      name: "Sales",
+      name: tDashboard('charts.statistics.sales'),
       data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
     },
     {
-      name: "Revenue",
+      name: tDashboard('charts.statistics.revenue'),
       data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
     },
   ];

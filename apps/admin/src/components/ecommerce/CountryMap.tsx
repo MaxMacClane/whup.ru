@@ -105,10 +105,19 @@ const CountryMap: React.FC<CountryMapProps> = ({ mapColor, markersData = [] }) =
       markersSelectable={true}
       markers={translatedMarkers} // Используем маркеры с индивидуальными стилями
       zoomOnScroll={false}
-      zoomMax={12}
-      zoomMin={1}
+      zoomMax={3}
+      zoomMin={1.0}
       zoomAnimate={true}
       zoomStep={1.5}
+      panOnDrag={true}
+      // Настройки для правильного отображения всех материков
+      focusOn={{
+        scale: 1.05,
+        x: 0.5,
+        y: 0.52
+      }}
+      // Альтернативный способ - через regionsSelectable
+      regionsSelectable={false}
       regionStyle={{
         initial: {
           fill: mapColor || "#D0D5DD",

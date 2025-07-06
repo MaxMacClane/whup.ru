@@ -4,12 +4,17 @@ import React from "react";
 import { ApexOptions } from "apexcharts";
 
 import dynamic from "next/dynamic";
+import { useTranslations } from 'next-intl';
+
 // Dynamically import the ReactApexChart component
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
 export default function BarChartOne() {
+  const tCommon = useTranslations('Common');
+  const tDashboard = useTranslations('Dashboard');
+  
   const options: ApexOptions = {
     colors: ["#465fff"],
     chart: {
@@ -38,18 +43,18 @@ export default function BarChartOne() {
     },
     xaxis: {
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        tCommon('months.jan'),
+        tCommon('months.feb'),
+        tCommon('months.mar'),
+        tCommon('months.apr'),
+        tCommon('months.may'),
+        tCommon('months.jun'),
+        tCommon('months.jul'),
+        tCommon('months.aug'),
+        tCommon('months.sep'),
+        tCommon('months.oct'),
+        tCommon('months.nov'),
+        tCommon('months.dec'),
       ],
       axisBorder: {
         show: false,
@@ -91,7 +96,7 @@ export default function BarChartOne() {
   };
   const series = [
     {
-      name: "Sales",
+      name: tDashboard('charts.monthlySales.sales'),
       data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
     },
   ];

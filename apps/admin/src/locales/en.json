@@ -12,6 +12,11 @@
     "locale": "{locale, select, ru {Russian} en {English} other {Unknown}}"
   },
   "Auth": {
+    "or": "Or",
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithX": "Sign in with X",
+    "signUpWithGoogle": "Sign up with Google",
+    "signUpWithX": "Sign up with X",
     "login": {
       "title": "Login",
       "subtitle": "Sign in to your account",
@@ -73,7 +78,7 @@
       "error404": "404 Error",
       "charts": "Charts",
       "line": "Line Chart",
-      "bar": "Bar Chart",
+      "bar": "Column Chart",
       "uiElements": "UI Elements",
       "alerts": "Alerts",
       "avatar": "Avatar",
@@ -359,24 +364,73 @@
       "placeholderPhone": "Enter phone number"
     },
     "textareaInput": {
-      "title": "Textarea Input",
-      "labelDefault": "Default Textarea",
-      "placeholderDefault": "Default textarea",
-      "labelActive": "Active Textarea",
-      "placeholderActive": "Active textarea",
-      "labelError": "Error Textarea",
+      "title": "Textarea Input (Examples)",
+      "labelDefault": "Standard",
+      "placeholderDefault": "Placeholder...",
+      "labelActive": "Focused",
+      "placeholderActive": "Placeholder...",
+      "labelError": "With Error",
+      "valueActive": "Example text.",
+      "valueError": "Example text in error area.",
       "hint": "Please enter a valid message."
     },
     "inputStates": {
-      "title": "Input States",
-      "subtitle": "Validation styles for error, success and disabled states on form controls.",
-      "labelEmail": "Email",
+      "title": "Input States (Examples)",
+      "subtitle": "Demonstration of field appearance in different states.",
+      "labelDefault": "Standard",
+      "labelFocus": "Focused",
+      "labelSuccess": "Success",
+      "labelError": "Error",
+      "labelDisabled": "Disabled",
       "placeholderEmail": "Enter your email",
-      "hintSuccess": "Valid email!",
-      "hintDisabled": "This field is disabled."
+      "valueDefault": "Regular field",
+      "valueFocus": "Field in focus",
+      "valueSuccess": "Successful validation",
+      "valueError": "Validation error",
+      "valueDisabled": "Inactive field"
     },
     "radioCheckboxes": {
       "title": "Radio & Checkboxes"
+    },
+    "creditCard": {
+      "title": "Credit Card",
+      "cardNumber": "Card Number",
+      "cardNumberPlaceholder": "Card Number",
+      "expiryDate": "Expiry Date",
+      "expiryDatePlaceholder": "MM/YY",
+      "cvc": "CVC",
+      "cvcPlaceholder": "CVC",
+      "cardHolderName": "Card Holder Name",
+      "cardHolderNamePlaceholder": "Your Name Here"
+    },
+    "multiSelect": {
+      "selectOption": "Select option"
+    },
+    "fileInput": {
+      "title": "File Input",
+      "uploadFile": "Upload file"
+    },
+    "checkbox": {
+      "title": "Checkbox"
+    },
+    "radioButtons": {
+      "title": "Radio Buttons"
+    },
+    "toggleSwitch": {
+      "title": "Toggle switch input"
+    },
+    "states": {
+      "default": "Default",
+      "checked": "Checked",
+      "selected": "Selected",
+      "disabled": "Disabled"
+    },
+    "dropzone": {
+      "title": "Dropzone",
+      "dragAndDrop": "Drag & Drop Files Here",
+      "dropFiles": "Drop Files Here",
+      "description": "Drag and drop your PNG, JPG, WebP, SVG images here or browse",
+      "browseFile": "Browse File"
     }
   },
   "Notifications": {
@@ -633,6 +687,77 @@
     "error": "ERROR",
     "notFound": "We can't seem to find the page you are looking for!",
     "backToHome": "Back to Home Page"
+  },
+  "Alerts": {
+    "pageTitle": "Alerts",
+    "success": {
+      "alertTitle": "Success Alert",
+      "messageTitle": "Success Message",
+      "message": "Be cautious when performing this action."
+    },
+    "warning": {
+      "alertTitle": "Warning Alert",
+      "messageTitle": "Warning Message", 
+      "message": "Be cautious when performing this action."
+    },
+    "error": {
+      "alertTitle": "Error Alert",
+      "messageTitle": "Error Message",
+      "message": "Be cautious when performing this action."
+    },
+    "info": {
+      "alertTitle": "Info Alert",
+      "messageTitle": "Info Message",
+      "message": "Be cautious when performing this action."
+    },
+    "learnMore": "Learn more"
+  },
+  "Avatar": {
+    "pageTitle": "Avatar",
+    "defaultAvatar": "Default Avatar",
+    "onlineIndicator": "Avatar with online indicator",
+    "offlineIndicator": "Avatar with Offline indicator",
+    "busyIndicator": "Avatar with busy indicator"
+  },
+  "Badge": {
+    "pageTitle": "Badges",
+    "lightBackground": "With Light Background",
+    "solidBackground": "With Solid Background",
+    "lightBackgroundLeftIcon": "Light Background with Left Icon",
+    "solidBackgroundLeftIcon": "Solid Background with Left Icon",
+    "lightBackgroundRightIcon": "Light Background with Right Icon",
+    "solidBackgroundRightIcon": "Solid Background with Right Icon",
+    "colors": {
+      "primary": "Primary",
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning",
+      "info": "Info",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "Buttons": {
+    "pageTitle": "Buttons",
+    "primaryButton": "Primary Button",
+    "primaryButtonLeftIcon": "Primary Button with Left Icon",
+    "primaryButtonRightIcon": "Primary Button with Right Icon",
+    "secondaryButton": "Secondary Button",
+    "outlineButtonLeftIcon": "Outline Button with Left Icon",
+    "outlineButtonRightIcon": "Outline Button with Right Icon",
+    "buttonText": "Button Text"
+  },
+  "Images": {
+    "pageTitle": "Images",
+    "responsiveImage": "Responsive image",
+    "imageIn2Grid": "Image in 2 Grid",
+    "imageIn3Grid": "Image in 3 Grid"
+  },
+  "Modals": {
+    "pageTitle": "Modals"
+  },
+  "Videos": {
+    "pageTitle": "Videos"
   },
   "ui": {
     "notifications": "Notifications",

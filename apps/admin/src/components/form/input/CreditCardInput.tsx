@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import payment, { Focused } from 'payment';
+import { useTranslations } from 'next-intl';
 import CardVisualization from './CardVisualization';
 import CardInputFields from './CardInputFields';
 import Label from '../Label';
@@ -103,6 +104,8 @@ const CreditCardInput: React.FC<CreditCardInputProps> = ({
   label,
   onChange,
 }) => {
+  const t = useTranslations('Forms.creditCard');
+  
   const [cardState, setCardState] = useState({
     number: '',
     expiry: '',
@@ -235,15 +238,15 @@ const CreditCardInput: React.FC<CreditCardInputProps> = ({
         onBlurCheck={handleBlurCheck}
       />
 
-      {/* Раскомментируем поле для имени */}
+      {/* Поле для имени */}
       <div className="mt-4">
-          <Label htmlFor={`${id}-name`}>Card Holder Name</Label> {/* TODO: Перевести */}
+          <Label htmlFor={`${id}-name`}>{t('cardHolderName')}</Label>
           <input
               id={`${id}-name`} // Устанавливаем ID
               type="text"
               name="name" 
               className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 dark:border-gray-700 dark:focus:border-brand-800"
-              placeholder="Your Name Here"
+              placeholder={t('cardHolderNamePlaceholder')}
               value={cardState.name} // Значение из состояния
               onChange={handleNameChange} // Обновленный обработчик
               onFocus={(e) => handleFocusChange(e.target.name as Focused)} // Передаем фокус

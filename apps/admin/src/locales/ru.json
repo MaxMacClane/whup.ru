@@ -4,6 +4,11 @@
     "locale": "{locale, select, ru {Русский} en {Английский} other {Неизвестный}}"
   },
   "Auth": {
+    "or": "Или",
+    "signInWithGoogle": "Войти через Google",
+    "signInWithX": "Войти через X",
+    "signUpWithGoogle": "Зарегистрироваться через Google",
+    "signUpWithX": "Зарегистрироваться через X",
     "login": {
       "title": "Вход",
       "subtitle": "Войдите в свой аккаунт",
@@ -485,25 +490,34 @@
       }
     },
     "textareaInput": {
-      "title": "Текстовые области",
-      "labelDefault": "Стандартная текстовая область",
-      "placeholderDefault": "Стандартная текстовая область",
-      "labelActive": "Активная текстовая область",
-      "placeholderActive": "Активная текстовая область",
-      "labelError": "Текстовая область с ошибкой",
+      "title": "Текстовые области (Примеры)",
+      "labelDefault": "Стандартная",
+      "placeholderDefault": "Плейсхолдер...",
+      "labelActive": "В фокусе",
+      "placeholderActive": "Плейсхолдер...",
+      "labelError": "С ошибкой",
+      "valueActive": "Пример текста.",
+      "valueError": "Пример текста в области с ошибкой.",
       "hint": "Пожалуйста, введите корректное сообщение."
     },
     "inputStates": {
-      "title": "Состояния полей ввода",
-      "subtitle": "Стили валидации для состояний ошибки, успеха и отключения элементов формы.",
-      "labelEmail": "Email",
+      "title": "Состояния полей ввода (Примеры)",
+      "subtitle": "Демонстрация вида полей в разных состояниях.",
+      "labelDefault": "Стандартное",
+      "labelFocus": "В фокусе",
+      "labelSuccess": "Успех",
+      "labelError": "Ошибка", 
+      "labelDisabled": "Отключено",
       "placeholderEmail": "Введите ваш email",
-      "hintSuccess": "Корректный email!",
-      "hintDisabled": "Это поле отключено."
+      "valueDefault": "Обычное поле",
+      "valueFocus": "Поле в фокусе",
+      "valueSuccess": "Успешная валидация",
+      "valueError": "Ошибка валидации",
+      "valueDisabled": "Неактивное поле"
     },
     "inputGroup": { 
       "title": "Группы полей ввода",
-      "labelEmail": "Email",
+      "labelEmail": "Электронная почта",
       "labelPhone": "Телефон",
       "placeholderPhone": "Введите номер телефона"
     },
@@ -516,6 +530,46 @@
       "uppercase": "Заглавные латинские буквы (A-Z)",
       "numbers": "Цифры (0-9)",
       "special": "Специальные символы (!@#$%^&*)"
+    },
+    "creditCard": {
+      "title": "Кредитная карта",
+      "cardNumber": "Номер карты",
+      "cardNumberPlaceholder": "Номер карты",
+      "expiryDate": "Срок действия",
+      "expiryDatePlaceholder": "ММ/ГГ",
+      "cvc": "CVC",
+      "cvcPlaceholder": "CVC",
+      "cardHolderName": "Держатель карты",
+      "cardHolderNamePlaceholder": "Ваше имя здесь"
+    },
+    "multiSelect": {
+      "selectOption": "Выберите опцию"
+    },
+    "fileInput": {
+      "title": "Поле ввода файла",
+      "uploadFile": "Загрузить файл"
+    },
+    "checkbox": {
+      "title": "Флажки"
+    },
+    "radioButtons": {
+      "title": "Радиокнопки"
+    },
+    "toggleSwitch": {
+      "title": "Переключатели"
+    },
+    "states": {
+      "default": "По умолчанию",
+      "checked": "Отмечен",
+      "selected": "Выбран",
+      "disabled": "Отключен"
+    },
+    "dropzone": {
+      "title": "Загрузка файлов",
+      "dragAndDrop": "Перетащите файлы сюда",
+      "dropFiles": "Отпустите файлы здесь",
+      "description": "Перетащите ваши PNG, JPG, WebP, SVG изображения сюда или выберите файл",
+      "browseFile": "Выбрать файл"
     }
   },
   "Tables": {
@@ -557,6 +611,77 @@
     "error": "ОШИБКА",
     "notFound": "Мы не можем найти страницу, которую вы ищете!",
     "backToHome": "Вернуться на главную"
+  },
+  "Alerts": {
+    "pageTitle": "Оповещения",
+    "success": {
+      "alertTitle": "Успешное оповещение",
+      "messageTitle": "Сообщение об успехе",
+      "message": "Будьте осторожны при выполнении этого действия."
+    },
+    "warning": {
+      "alertTitle": "Предупреждающее оповещение", 
+      "messageTitle": "Предупреждающее сообщение",
+      "message": "Будьте осторожны при выполнении этого действия."
+    },
+    "error": {
+      "alertTitle": "Оповещение об ошибке",
+      "messageTitle": "Сообщение об ошибке", 
+      "message": "Будьте осторожны при выполнении этого действия."
+    },
+    "info": {
+      "alertTitle": "Информационное оповещение",
+      "messageTitle": "Информационное сообщение",
+      "message": "Будьте осторожны при выполнении этого действия."
+    },
+    "learnMore": "Узнать больше"
+  },
+  "Avatar": {
+    "pageTitle": "Аватар",
+    "defaultAvatar": "Стандартный аватар",
+    "onlineIndicator": "Аватар с индикатором онлайн",
+    "offlineIndicator": "Аватар с индикатором оффлайн",
+    "busyIndicator": "Аватар с индикатором занят"
+  },
+  "Badge": {
+    "pageTitle": "Бейджи",
+    "lightBackground": "Со светлым фоном",
+    "solidBackground": "Со сплошным фоном",
+    "lightBackgroundLeftIcon": "Светлый фон с левой иконкой",
+    "solidBackgroundLeftIcon": "Сплошной фон с левой иконкой",
+    "lightBackgroundRightIcon": "Светлый фон с правой иконкой",
+    "solidBackgroundRightIcon": "Сплошной фон с правой иконкой",
+    "colors": {
+      "primary": "Основной",
+      "success": "Успех",
+      "error": "Ошибка",
+      "warning": "Предупреждение",
+      "info": "Информация",
+      "light": "Светлый",
+      "dark": "Темный"
+    }
+  },
+  "Buttons": {
+    "pageTitle": "Кнопки",
+    "primaryButton": "Основная кнопка",
+    "primaryButtonLeftIcon": "Основная кнопка с левой иконкой",
+    "primaryButtonRightIcon": "Основная кнопка с правой иконкой",
+    "secondaryButton": "Вторичная кнопка",
+    "outlineButtonLeftIcon": "Контурная кнопка с левой иконкой",
+    "outlineButtonRightIcon": "Контурная кнопка с правой иконкой",
+    "buttonText": "Текст кнопки"
+  },
+  "Images": {
+    "pageTitle": "Изображения",
+    "responsiveImage": "Адаптивное изображение",
+    "imageIn2Grid": "Изображения в 2 колонки",
+    "imageIn3Grid": "Изображения в 3 колонки"
+  },
+  "Modals": {
+    "pageTitle": "Модальные окна"
+  },
+  "Videos": {
+    "pageTitle": "Видео"
   },
   "Notifications": {
     "title": "Уведомления",

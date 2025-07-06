@@ -1,19 +1,22 @@
 "use client";
 import React from "react";
+import { useTranslations } from 'next-intl';
 import ComponentCard from "../../common/ComponentCard";
 import TextArea from "../input/TextArea";
 import Label from "../Label";
 
 export default function TextAreaInput() {
+  const t = useTranslations('Forms.textareaInput');
+  
   return (
-    <ComponentCard title="Текстовые области (Примеры)">
+    <ComponentCard title={t('title')}>
       <div className="space-y-6">
         {/* 1. Стандартное состояние */}
         <div>
-          <Label>Стандартная</Label>
+          <Label>{t('labelDefault')}</Label>
           <TextArea
             rows={4}
-            placeholder="Плейсхолдер..."
+            placeholder={t('placeholderDefault')}
             value=""
             disabled
           />
@@ -21,22 +24,22 @@ export default function TextAreaInput() {
 
         {/* 2. Имитация состояния "В фокусе" */}
         <div>
-          <Label>В фокусе</Label>
+          <Label>{t('labelActive')}</Label>
           <TextArea
             rows={4}
-            placeholder="Плейсхолдер..."
-            value="Пример текста."
+            placeholder={t('placeholderActive')}
+            value={t('valueActive')}
             isfocus
           />
         </div>
 
         {/* 3. Состояние ошибки */}
         <div>
-          <Label>С ошибкой</Label>
+          <Label>{t('labelError')}</Label>
           <TextArea
             rows={4}
-            placeholder="Плейсхолдер..."
-            value="Пример текста в области с ошибкой."
+            placeholder={t('placeholderActive')}
+            value={t('valueError')}
             error
           />
         </div>

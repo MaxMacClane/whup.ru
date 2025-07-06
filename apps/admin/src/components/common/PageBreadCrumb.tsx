@@ -27,7 +27,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
       const key = title.replace('Common.', '');
       return tCommon(key);
     } else {
-      // Если нет префикса, возвращаем как есть (это готовый текст)
+      // Если нет префикса, возвращаем как есть (это готовый переведенный текст)
       return title;
     }
   };

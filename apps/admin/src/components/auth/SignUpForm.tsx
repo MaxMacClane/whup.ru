@@ -4,16 +4,22 @@ import Input from "@/components/form/input/InputField";
 import Label from "@/components/form/Label";
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const t = useTranslations('Auth.register');
+  const tAuth = useTranslations('Auth');
+  const locale = useLocale();
+  
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full overflow-y-auto no-scrollbar">
       <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">
         <Link
-          href="/"
+          href={`/${locale}/admin`}
           className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
         >
           <ChevronLeftIcon />
@@ -22,14 +28,37 @@ export default function SignUpForm() {
       </div>
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
-          <div className="mb-5 sm:mb-8">
-            <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
-              Sign Up
-            </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Enter your email and password to sign up!
-            </p>
+          {/* Логотип и брендинг */}
+          <div className="flex flex-col items-center mb-8">
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                width={40}
+                height={40}
+                className="dark:hidden"
+                src="/images/logo/logo-1.svg"
+                alt="Logo"
+              />
+              <Image
+                width={40}
+                height={40}
+                className="hidden dark:block"
+                src="/images/logo/logo-2.svg"
+                alt="Logo"
+              />
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                Whup.ru
+              </span>
+            </div>
+            <div className="text-center">
+              <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
+                {t('title')}
+              </h1>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {t('subtitle')}
+              </p>
+            </div>
           </div>
+          
           <div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5">
               <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
@@ -57,7 +86,7 @@ export default function SignUpForm() {
                     fill="#EB4335"
                   />
                 </svg>
-                Sign up with Google
+                {tAuth('signUpWithGoogle')}
               </button>
               <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
                 <svg
@@ -70,7 +99,7 @@ export default function SignUpForm() {
                 >
                   <path d="M15.6705 1.875H18.4272L12.4047 8.75833L19.4897 18.125H13.9422L9.59717 12.4442L4.62554 18.125H1.86721L8.30887 10.7625L1.51221 1.875H7.20054L11.128 7.0675L15.6705 1.875ZM14.703 16.475H16.2305L6.37054 3.43833H4.73137L14.703 16.475Z" />
                 </svg>
-                Sign up with X
+                {tAuth('signUpWithX')}
               </button>
             </div>
             <div className="relative py-3 sm:py-5">
@@ -79,7 +108,7 @@ export default function SignUpForm() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="p-2 text-gray-400 bg-white dark:bg-gray-900 sm:px-5 sm:py-2">
-                  Or
+                  {tAuth('or')}
                 </span>
               </div>
             </div>
@@ -89,48 +118,48 @@ export default function SignUpForm() {
                   {/* <!-- First Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
-                      First Name<span className="text-error-500">*</span>
+                      {t('name')}<span className="text-error-500">*</span>
                     </Label>
                     <Input
                       type="text"
                       id="fname"
                       name="fname"
-                      placeholder="Enter your first name"
+                      placeholder={t('name')}
                     />
                   </div>
                   {/* <!-- Last Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
-                      Last Name<span className="text-error-500">*</span>
+                      Фамилия<span className="text-error-500">*</span>
                     </Label>
                     <Input
                       type="text"
                       id="lname"
                       name="lname"
-                      placeholder="Enter your last name"
+                      placeholder="Введите фамилию"
                     />
                   </div>
                 </div>
                 {/* <!-- Email --> */}
                 <div>
                   <Label>
-                    Email<span className="text-error-500">*</span>
+                    {t('email')}<span className="text-error-500">*</span>
                   </Label>
                   <Input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder={t('email')}
                   />
                 </div>
                 {/* <!-- Password --> */}
                 <div>
                   <Label>
-                    Password<span className="text-error-500">*</span>
+                    {t('password')}<span className="text-error-500">*</span>
                   </Label>
                   <div className="relative">
                     <Input
-                      placeholder="Enter your password"
+                      placeholder={t('password')}
                       type={showPassword ? "text" : "password"}
                     />
                     <span
@@ -153,20 +182,13 @@ export default function SignUpForm() {
                     onChange={setIsChecked}
                   />
                   <p className="inline-block font-normal text-gray-500 dark:text-gray-400">
-                    By creating an account means you agree to the{" "}
-                    <span className="text-gray-800 dark:text-white/90">
-                      Terms and Conditions,
-                    </span>{" "}
-                    and our{" "}
-                    <span className="text-gray-800 dark:text-white">
-                      Privacy Policy
-                    </span>
+                    {t('terms')}
                   </p>
                 </div>
                 {/* <!-- Button --> */}
                 <div>
                   <button className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
-                    Sign Up
+                    {t('submit')}
                   </button>
                 </div>
               </div>
@@ -174,12 +196,12 @@ export default function SignUpForm() {
 
             <div className="mt-5">
               <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
-                Already have an account?
+                {t('haveAccount')} {""}
                 <Link
-                  href="/signin"
+                  href={`/${locale}/signin`}
                   className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
                 >
-                  Sign In
+                  {t('signIn')}
                 </Link>
               </p>
             </div>

@@ -1,82 +1,78 @@
+'use client';
 import ComponentCard from "@/components/common/ComponentCard";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import Alert from "@/components/ui/alert/Alert";
-import { Metadata } from "next";
 import React from "react";
-
-export const metadata: Metadata = {
-  title: "Next.js Alerts | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Alerts page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-  // other metadata
-};
+import { useTranslations } from 'next-intl';
 
 export default function Alerts() {
+  const t = useTranslations('Alerts');
+  
   return (
     <div>
-      <PageBreadcrumb pageTitle="Alerts" />
+      <PageBreadcrumb pageTitle={t('pageTitle')} />
       <div className="space-y-5 sm:space-y-6">
-        <ComponentCard title="Success Alert">
+        <ComponentCard title={t('success.alertTitle')}>
           <Alert
             variant="success"
-            title="Success Message"
-            message="Be cautious when performing this action."
+            title={t('success.messageTitle')}
+            message={t('success.message')}
             showLink={true}
             linkHref="/"
-            linkText="Learn more"
+            linkText={t('learnMore')}
           />
           <Alert
             variant="success"
-            title="Success Message"
-            message="Be cautious when performing this action."
+            title={t('success.messageTitle')}
+            message={t('success.message')}
             showLink={false}
           />
         </ComponentCard>
-        <ComponentCard title="Warning Alert">
+        <ComponentCard title={t('warning.alertTitle')}>
           <Alert
             variant="warning"
-            title="Warning Message"
-            message="Be cautious when performing this action."
+            title={t('warning.messageTitle')}
+            message={t('warning.message')}
             showLink={true}
             linkHref="/"
-            linkText="Learn more"
+            linkText={t('learnMore')}
           />
           <Alert
             variant="warning"
-            title="Warning Message"
-            message="Be cautious when performing this action."
+            title={t('warning.messageTitle')}
+            message={t('warning.message')}
             showLink={false}
           />
-        </ComponentCard>{" "}
-        <ComponentCard title="Error Alert">
+        </ComponentCard>
+        <ComponentCard title={t('error.alertTitle')}>
           <Alert
             variant="error"
-            title="Error Message"
-            message="Be cautious when performing this action."
+            title={t('error.messageTitle')}
+            message={t('error.message')}
             showLink={true}
             linkHref="/"
-            linkText="Learn more"
+            linkText={t('learnMore')}
           />
           <Alert
             variant="error"
-            title="Error Message"
-            message="Be cautious when performing this action."
+            title={t('error.messageTitle')}
+            message={t('error.message')}
             showLink={false}
           />
-        </ComponentCard>{" "}
-        <ComponentCard title="Info Alert">
+        </ComponentCard>
+        <ComponentCard title={t('info.alertTitle')}>
           <Alert
             variant="info"
-            title="Info Message"
-            message="Be cautious when performing this action."
+            title={t('info.messageTitle')}
+            message={t('info.message')}
             showLink={true}
             linkHref="/"
-            linkText="Learn more"
+            linkText={t('learnMore')}
           />
           <Alert
             variant="info"
-            title="Info Message"
-            message="Be cautious when performing this action."
+            title={t('info.messageTitle')}
+            message={t('info.message')}
             showLink={false}
           />
         </ComponentCard>

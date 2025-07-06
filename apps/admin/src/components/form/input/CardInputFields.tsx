@@ -3,6 +3,7 @@
 import React, { ChangeEvent, FocusEvent, useCallback } from 'react';
 import { Focused } from 'payment';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { useTranslations } from 'next-intl';
 import clsx from 'clsx';
 
 interface CardInputFieldsProps {
@@ -30,6 +31,7 @@ const CardInputFields: React.FC<CardInputFieldsProps> = ({
   onToggleMask,
   onBlurCheck,
 }) => {
+  const t = useTranslations('Forms.creditCard');
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
@@ -67,7 +69,7 @@ const CardInputFields: React.FC<CardInputFieldsProps> = ({
         inputMode="numeric"
         name="number"
         className="flex-1 h-11 px-4 py-2.5 text-sm bg-transparent focus:outline-none dark:text-white/90 placeholder:text-gray-400 dark:placeholder:text-white/30"
-        placeholder="Card Number"
+        placeholder={t('cardNumberPlaceholder')}
         value={number}
         onChange={handleInputChange}
         onFocus={handleElementFocus}
@@ -81,7 +83,7 @@ const CardInputFields: React.FC<CardInputFieldsProps> = ({
         inputMode="numeric"
         name="expiry"
         className="w-20 h-11 px-2 py-2.5 text-sm bg-transparent focus:outline-none dark:text-white/90 placeholder:text-gray-400 dark:placeholder:text-white/30 text-center border-l border-gray-300 dark:border-gray-700"
-        placeholder="MM/YY"
+        placeholder={t('expiryDatePlaceholder')}
         value={expiry}
         onChange={handleInputChange}
         onFocus={handleElementFocus}
@@ -95,7 +97,7 @@ const CardInputFields: React.FC<CardInputFieldsProps> = ({
         inputMode="numeric"
         name="cvc"
         className="w-20 h-11 px-2 py-2.5 text-sm bg-transparent focus:outline-none dark:text-white/90 placeholder:text-gray-400 dark:placeholder:text-white/30 text-center border-l border-gray-300 dark:border-gray-700"
-        placeholder="CVC"
+        placeholder={t('cvcPlaceholder')}
         value={cvc || ''}
         onChange={handleInputChange}
         onFocus={handleElementFocus}

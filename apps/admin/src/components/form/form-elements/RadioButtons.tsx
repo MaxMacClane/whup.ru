@@ -1,16 +1,20 @@
 "use client";
 import React, { useState } from "react";
+import { useTranslations } from 'next-intl';
 import ComponentCard from "../../common/ComponentCard";
 import Radio from "../input/Radio";
 
 export default function RadioButtons() {
+  const t = useTranslations('Forms.radioButtons');
+  const tStates = useTranslations('Forms.states');
+  
   const [selectedValue, setSelectedValue] = useState<string>("option2");
 
   const handleRadioChange = (value: string) => {
     setSelectedValue(value);
   };
   return (
-    <ComponentCard title="Radio Buttons">
+    <ComponentCard title={t('title')}>
       <div className="flex flex-wrap items-center gap-8">
         <Radio
           id="radio1"
@@ -18,7 +22,7 @@ export default function RadioButtons() {
           value="option1"
           checked={selectedValue === "option1"}
           onChange={handleRadioChange}
-          label="Default"
+          label={tStates('default')}
         />
         <Radio
           id="radio2"
@@ -26,7 +30,7 @@ export default function RadioButtons() {
           value="option2"
           checked={selectedValue === "option2"}
           onChange={handleRadioChange}
-          label="Selected"
+          label={tStates('selected')}
         />
         <Radio
           id="radio3"
@@ -34,7 +38,7 @@ export default function RadioButtons() {
           value="option3"
           checked={selectedValue === "option3"}
           onChange={handleRadioChange}
-          label="Disabled"
+          label={tStates('disabled')}
           disabled={true}
         />
       </div>
