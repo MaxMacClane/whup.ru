@@ -49,4 +49,3 @@ coverage/
 # Ignore lock files from other package managers
 yarn.lock
 package-lock.json
-
